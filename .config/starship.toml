@@ -1,6 +1,6 @@
 [username]
 style_root = "bold fg:red"
-style_user = "bold fg:red"
+style_user = "bold fg:green"
 show_always = true
 disabled = false
 
