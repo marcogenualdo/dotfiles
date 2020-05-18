@@ -46,6 +46,9 @@ set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
 
 # EXECUTE ON LAUNCH
 
+# enable direnv
+eval (direnv hook fish)
+
 # start tmux
 if status is-interactive
 and not set -q TMUX
