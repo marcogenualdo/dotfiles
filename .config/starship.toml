@@ -7,5 +7,5 @@ disabled = false
 [directory]
 truncate_to_repo = true
 disabled = false
-fish_style_pwd_dir_length = 2
+fish_style_pwd_dir_length = 3
 use_logical_path = true

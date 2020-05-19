@@ -38,7 +38,8 @@ abbr ape "source .venv/bin/activate.fish"
 # VARIABLES
 
 set fish_greeting ""
-set --export EDITOR vim
+set --export EDITOR nvim
+set --export VISUAL nvim
 set --export BROWSER firefox
 
 set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
@@ -52,5 +53,5 @@ eval (direnv hook fish)
 # start tmux
 if status is-interactive
 and not set -q TMUX
-    exec tmux attach
+    exec tmux -u attach
 end
