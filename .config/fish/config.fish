@@ -35,6 +35,11 @@ abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fi
 abbr py python3
 abbr ape "source .venv/bin/activate.fish"
 
+abbr gs "git status"
+abbr gds "gitdot status"
+abbr gda "gitdot add .config/fish/config.fish .config/nvim/init.vim .config/starship.toml .tmux.conf"
+
+
 # VARIABLES
 
 set fish_greeting ""

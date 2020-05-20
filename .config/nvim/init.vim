@@ -8,7 +8,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'
 
 " Programming
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 
