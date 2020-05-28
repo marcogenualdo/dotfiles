@@ -1,11 +1,5 @@
-[username]
-style_root = "bold fg:red"
-style_user = "bold fg:green"
-show_always = true
-disabled = false
-
 [directory]
 truncate_to_repo = true
 disabled = false
-fish_style_pwd_dir_length = 3
+fish_style_pwd_dir_length = 2
 use_logical_path = true
