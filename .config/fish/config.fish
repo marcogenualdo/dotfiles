@@ -17,20 +17,23 @@ alias lkk='xdg-screensaver lock'
 alias rg="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
 
 # use git bare repo to manage dotfiles
-alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME' 
+alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 
 # programs
 abbr vim nvim
-abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr py python3
+
+# (un)zipping
+abbr targz "tar -xzf"
+
+# easy configs
+abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
+abbr convim "nvim ~/.config/nvim/init.vim"
 
 # git
 abbr gs "git status"
 abbr gds "gitdot status"
 abbr gda "gitdot add ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/nvim/init.vim ~/.config/starship.toml ~/.tmux.conf"
-
-# (un)zipping
-abbr targz "tar -xzf"
 
 
 # VARIABLES
