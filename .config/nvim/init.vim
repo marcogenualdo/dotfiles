@@ -19,13 +19,14 @@ Plug 'tpope/vim-commentary'
 
 " Look
 Plug 'itchyny/lightline.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
 
 
-colorscheme gruvbox
+" run %s/#1E1E1E/#111111/g in colors.vim
+colorscheme codedark
 
 
 """""""""""""""""""""""""""""""""
@@ -48,7 +49,7 @@ set ruler
 set number relativenumber
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=10
+set scrolloff=5
 
 " Speed up scrolling in Vim
 set ttyfast
@@ -67,6 +68,10 @@ set matchpairs+=<:>
 
 """""""""""""""""""""""""""""""""
 " NAVIGATION
+
+" Sane splits
+set splitright
+set splitbelow
 
 " better window splits
 nnoremap <C-H> <C-W><C-H>

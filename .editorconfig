@@ -1,0 +1,36 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+tab_width = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.json]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+
+[*.py]
+indent_style = space
+
+[*.rs]
+indent_style = space
+
+[*.scala]
+indent_style = space
+indent_size = 2
+
+[*.tf]
+indent_style = space
+indent_size = 2
+
+[*.{yaml,yml}]
+indent_style = space
+indent_size = 4

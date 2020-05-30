@@ -12,6 +12,11 @@ function fish_prompt
     printf '%s' (prompt_pwd)
     set_color normal
 
+    if not set -q __git_cb
+        set __git_cb (set_color yellow)" (⚒ "(git branch ^/dev/null | grep \* | sed 's/* //')")"(set_color normal)
+    end
+    printf '%s' $__git_cb
+
     # Line 2
     echo
     if test $VIRTUAL_ENV
