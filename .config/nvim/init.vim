@@ -1,3 +1,6 @@
+let mapleader=" "
+
+
 """""""""""""""""""""""""""""""""
 " PLUGINS
 
@@ -74,13 +77,13 @@ set splitright
 set splitbelow
 
 " better window splits
-nnoremap <C-H> <C-W><C-H>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
+nnoremap <leader>h <C-W><C-H>
+nnoremap <leader>l <C-W><C-L>
+nnoremap <leader>j <C-W><C-J>
+nnoremap <leader>k <C-W><C-K>
 
 " cycle through buffers
-nnoremap <silent> <M-b> :bn<cr>
+nnoremap <silent> <C-B> :bn<cr>
 
 
 """""""""""""""""""""""""""""""""
@@ -126,6 +129,10 @@ let g:coc_global_extensions = [
 set hidden
 set updatetime=300
 
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
@@ -151,11 +158,14 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
