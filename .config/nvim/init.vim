@@ -57,9 +57,12 @@ set scrolloff=5
 " Speed up scrolling in Vim
 set ttyfast
 
-" Display options
+" Commands options
 set showmode
 set showcmd
+
+set wildmenu
+set wildignore+=**/node_modules/**
 
 " Highlight matching pairs of brackets. Use the '%' character to jump between them.
 set matchpairs+=<:>
@@ -124,6 +127,7 @@ let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
+  \ 'coc-vimtex',
   \ ]
 
 set hidden
