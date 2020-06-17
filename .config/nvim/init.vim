@@ -83,7 +83,9 @@ nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
 " cycle through buffers
-nnoremap <silent> <C-B> :bn<cr>
+nnoremap <silent> <M-B> :bn<cr>
+" go to last open buffer
+nnoremap <leader><leader> <C-^>
 
 
 """""""""""""""""""""""""""""""""
@@ -94,10 +96,10 @@ set ignorecase
 set smartcase
 
 " search with f
-nnoremap f /
+nmap f /
 
 " unhighlight, think 'deselect'
-nnoremap <C-d> :noh<cr>
+nmap <C-d> :noh<cr>
 
 " Indentation
 set smarttab
@@ -111,6 +113,9 @@ set expandtab
 """""""""""""""""""""""""""""""""
 " ctrlp
 "let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+"easier trigger
+nmap <leader>f <C-P>
 
 
 """"""""""""""""""""""""""""""""
@@ -195,5 +200,5 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>F  <Plug>(coc-format-selected)
+nmap <leader>F  <Plug>(coc-format-selected)

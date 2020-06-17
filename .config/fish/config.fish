@@ -23,8 +23,8 @@ alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 abbr vim nvim
 abbr py python3
 
-# (un)zipping
-abbr targz "tar -xzf"
+# zip-like tar extraction
+abbr untar "tar -xzf"
 
 # easy configs
 abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
@@ -32,6 +32,8 @@ abbr convim "nvim ~/.config/nvim/init.vim"
 
 # git
 abbr gs "git status"
+abbr gac "git add --all && git commit -m"
+
 abbr gds "gitdot status"
 abbr gda "gitdot add ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/nvim/init.vim ~/.config/starship.toml ~/.tmux.conf"
 
