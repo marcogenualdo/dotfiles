@@ -9,13 +9,17 @@ tab_width = 4
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+[*.md]
+trim_trailing_whitespace = false
+indent_style = space
+
 [*.json]
 indent_style = space
 indent_size = 2
 
-[*.md]
-trim_trailing_whitespace = false
+[*.{yaml,yml}]
 indent_style = space
+indent_size = 2
 
 [*.py]
 indent_style = space
@@ -30,10 +34,6 @@ indent_size = 2
 [*.tf]
 indent_style = space
 indent_size = 2
-
-[*.{yaml,yml}]
-indent_style = space
-indent_size = 4
 
 [Makefile]
 indent_style = tabs

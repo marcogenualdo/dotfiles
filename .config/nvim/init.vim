@@ -11,9 +11,10 @@ Plug 'tpope/vim-sensible'
 Plug 'machakann/vim-highlightedyank'
 Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'wellle/tmux-complete.vim'
+Plug 'editorconfig/editorconfig-vim' " file-type specific settings
 Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+Plug 'dohsimpson/vim-macroeditor' " usage: MacroEdit <register-letter>
 
 " Programming
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,7 +29,7 @@ Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 
-" run %s/#1E1E1E/#111111/g in colors.vim
+" !on installation run %s/#1E1E1E/#111111/g in colors.vim
 colorscheme codedark
 
 
@@ -83,7 +84,7 @@ nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
 " cycle through buffers
-nnoremap <silent> <M-B> :bn<cr>
+nnoremap <silent> <leader>b :bn<cr>
 " go to last open buffer
 nnoremap <leader><leader> <C-^>
 
@@ -91,7 +92,7 @@ nnoremap <leader><leader> <C-^>
 """""""""""""""""""""""""""""""""
 " SEARCH
 
-" Case sensitive search only when a capital letter is in the search pattern
+" case sensitive search only when a capital letter is in the search pattern
 set ignorecase
 set smartcase
 
@@ -145,7 +146,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " nerdtree toggle
-:nmap <C-n> :CocCommand explorer<CR>
+:nmap <silent> <C-n> :CocCommand explorer --width 32<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.

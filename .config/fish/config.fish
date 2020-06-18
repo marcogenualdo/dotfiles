@@ -35,7 +35,7 @@ abbr gs "git status"
 abbr gac "git add --all && git commit -m"
 
 abbr gds "gitdot status"
-abbr gda "gitdot add ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/nvim/init.vim ~/.config/starship.toml ~/.tmux.conf"
+abbr gda "gitdot add ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/nvim/init.vim ~/.config/starship.toml ~/.tmux.conf ~/.editorconfig"
 
 
 # VARIABLES
