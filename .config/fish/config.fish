@@ -10,11 +10,22 @@ fish_vi_key_bindings
 
 # ALISES
 
+alias xclip="xclip -selection clipboard"
+
+if command -v exa > /dev/null
+    alias ls exa
+    alias ll "exa -l"
+    alias la "exa -la"
+end
+if command -v bat > /dev/null
+    alias print bat
+end
+
 # lock screen
 alias lkk='xdg-screensaver lock'
 
 # ranger leaves you in the directory you exit it from
-alias rg="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
+alias lf="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
 
 # use git bare repo to manage dotfiles
 alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
@@ -35,7 +46,7 @@ abbr gs "git status"
 abbr gac "git add --all && git commit -m"
 
 abbr gds "gitdot status"
-abbr gda "gitdot add ~/.config/fish/functions/ ~/.config/fish/config.fish ~/.config/nvim/init.vim ~/.config/starship.toml ~/.tmux.conf ~/.editorconfig"
+abbr gdc "gitdot commit --all -m"
 
 
 # VARIABLES

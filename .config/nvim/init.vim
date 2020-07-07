@@ -13,7 +13,8 @@ Plug 'tpope/vim-surround'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'
 Plug 'editorconfig/editorconfig-vim' " file-type specific settings
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'dohsimpson/vim-macroeditor' " usage: MacroEdit <register-letter>
 
 " Programming
@@ -40,6 +41,9 @@ syntax on "syntax highlighting
 set nocompatible  "Set compatibility to Vim only.
 set encoding=utf-8
 set termguicolors
+set noswapfile
+set smartindent
+set incsearch
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -86,10 +90,20 @@ nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
+" next/previous tab
+nnoremap <silent> <leader>m :tabn<CR>
+nnoremap <silent> <leader>n :tabp<CR>
+
 " cycle through buffers
 nnoremap <silent> <leader>b :bn<cr>
-" go to last open buffer
+" go to last opened buffer
 nnoremap <leader><leader> <C-^>
+
+" resizing panes
+nmap <leader>L :vertical resize +10<CR>
+nmap <leader>H :vertical resize -10<CR>
+nmap <leader>J :resize +5<CR>
+nmap <leader>K :resize -5<CR>
 
 
 """""""""""""""""""""""""""""""""
@@ -115,11 +129,10 @@ set expandtab
 
 
 """""""""""""""""""""""""""""""""
-" ctrlp
-"let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" FZF
 
-"easier trigger
-nmap <leader>f <C-P>
+nnoremap <leader>o :Files<CR>
+nnoremap <leader>r :Rg<CR>
 
 
 """"""""""""""""""""""""""""""""
@@ -150,7 +163,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " nerdtree toggle
-:nmap <silent> <C-n> :CocCommand explorer --width 32<CR>
+nmap <silent> <C-n> :CocCommand explorer --width 32<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -203,7 +216,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>F  <Plug>(coc-format-selected)
-nmap <leader>F  <Plug>(coc-format-selected)
+nnoremap <leader><F2> :CocSearch <C-R>=expand("<cword>")<CR><CR>
