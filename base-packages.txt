@@ -1,0 +1,16 @@
+firefox
+fish
+tmux
+xclip
+neovim
+nodejs
+npm
+ranger
+ripgrep
+figlet
+bat
+exa
+direnv
+python
+python-pip
+gnome-tweaks
