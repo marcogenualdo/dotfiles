@@ -44,6 +44,7 @@ set termguicolors
 set noswapfile
 set smartindent
 set incsearch
+set mouse+=a
 
 " Use system clipboard
 set clipboard+=unnamedplus

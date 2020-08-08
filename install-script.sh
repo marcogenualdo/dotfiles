@@ -36,6 +36,9 @@ gitdot pull origin dev
 echo "
 map DD shell mv %s /home/\${USER}/.local/share/Trash/files/" >> ~/.config/ranger/rc.conf
 
+# gnome settings
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
+
 # wrapping up
 chsh -s `which fish`
 
