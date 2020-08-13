@@ -118,7 +118,7 @@ set smartcase
 nmap f /
 
 " unhighlight, think 'deselect'
-nmap <C-d> :noh<cr>
+nmap <leader>d :noh<cr>
 
 " Indentation
 set smarttab
