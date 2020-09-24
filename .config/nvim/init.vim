@@ -77,6 +77,9 @@ set matchpairs+=<:>
 "noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 "noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+" copy till the end of the line
+nnoremap Y y$
+
 
 """""""""""""""""""""""""""""""""
 " NAVIGATION

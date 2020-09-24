@@ -43,6 +43,7 @@ abbr convim "nvim ~/.config/nvim/init.vim"
 
 # git
 abbr gs "git status"
+abbr gc "git checkout"
 abbr gac "git add --all && git commit -m"
 
 abbr gds "gitdot status"
