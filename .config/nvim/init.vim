@@ -118,7 +118,7 @@ set ignorecase
 set smartcase
 
 " search with f
-nmap f /
+nmap <leader>f /
 
 " unhighlight, think 'deselect'
 nmap <leader>d :noh<cr>

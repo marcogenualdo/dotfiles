@@ -32,7 +32,7 @@ alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 
 # programs
 abbr vim nvim
-abbr py python3
+abbr py python
 
 # zip-like tar extraction
 abbr untar "tar -xzf"
