@@ -54,9 +54,13 @@ abbr gdc "gitdot commit --all -m"
 # VARIABLES
 
 set fish_greeting ""
+
 set --export EDITOR nvim
 set --export VISUAL nvim
 set --export BROWSER firefox
+set --export PAGER less -RF
+set --export MANPAGER "nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' -"
 
 set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
 
