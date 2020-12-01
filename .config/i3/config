@@ -41,7 +41,14 @@ set $refresh_i3status killall -SIGUSR1 i3status
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e tmux
+bindsym $mod+t exec alacritty -e tmux new-session -A -s def
+
+# start firefox
+bindsym $mod+b exec firefox
+
+# take screenshot
+bindsym $mod+<F10> exec flameshot gui
 
 # kill focused window
 bindsym $mod+q kill
@@ -147,6 +154,10 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# move focused workspace to monitor
+bindsym $mod+n move workspace to output up
+bindsym $mod+m move workspace to output down
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -176,10 +187,12 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-        font pango:DejaVu Sans Mono 10
-}
+# bar {
+#         height 30
+#         position top
+#         status_command i3status
+#         font pango:DejaVu Sans Mono 10
+# }
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -202,9 +215,14 @@ bindsym XF86AudioPrev exec playerctl previous
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 0
 
+gaps inner 6
+
 
 # STARTUP APPS
 
+exec redshift -P -O 3500
+exec flameshot
 assign [class="discord"] $ws10
 exec discord
-exec_always --no-startup-id i3-msg '$ws9; exec_always firefox https://web.whatsapp.com'
+exec_always feh --bg-scale $HOME/Pictures/wallpaper1.png
+exec_always --no-startup-id sh $HOME/.config/polybar/launch.sh
