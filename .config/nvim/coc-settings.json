@@ -1,3 +1,12 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "json", "py"]
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "markdown",
+    "json",
+    "python",
+    "javascript",
+    "ts"
+  ],
+  "html.autoClosingTags": true,
+  "python.formatting.provider": "black"
 }
