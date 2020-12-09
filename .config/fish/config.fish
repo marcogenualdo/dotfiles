@@ -49,7 +49,7 @@ abbr gac "git add --all && git commit -m"
 abbr gsd "git diff --compact-summary"
 
 abbr gds "gitdot status --short"
-abbr gdc "gitdot commit --all -m"
+abbr gdca "gitdot commit --all -m"
 abbr gdsd "gitdot diff --compact-summary"
 
 
