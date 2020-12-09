@@ -21,6 +21,10 @@ indent_size = 2
 indent_style = space
 indent_size = 2
 
+[*.{html,htm}]
+indent_style = space
+indent_size = 2
+
 [*.py]
 indent_style = space
 
@@ -32,6 +36,14 @@ indent_style = space
 indent_size = 2
 
 [*.tf]
+indent_style = space
+indent_size = 2
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+[*.ts]
 indent_style = space
 indent_size = 2
 

@@ -35,6 +35,13 @@ colorscheme codedark
 
 
 """""""""""""""""""""""""""""""""
+" DEPENDENCIES
+
+let g:python3_host_prog = '/home/mgenualdo/.asdf/installs/python/3.9.0/bin/python'
+" let g:loaded_python3_provider = 0
+
+
+"""""""""""""""""""""""""""""""""
 " BASICS
 
 syntax on "syntax highlighting
@@ -133,6 +140,12 @@ set expandtab
 
 
 """""""""""""""""""""""""""""""""
+" PAGER SETTINGS
+
+let $PAGER=''
+
+
+"""""""""""""""""""""""""""""""""
 " FZF
 
 nnoremap <leader>o :Files<CR>
@@ -158,6 +171,8 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-eslint',
   \ 'coc-prettier',
+  \ 'coc-html',
+  \ 'coc-tsserver',
   \ 'coc-json',
   \ 'coc-vimtex',
   \ ]
@@ -230,3 +245,4 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Remap for rename current word
 nmap <F2> <Plug>(coc-rename)
 nnoremap <leader><F2> :CocSearch <C-R>=expand("<cword>")<CR><CR>
+vnoremap <leader><F2> :CocSearch '<,'><CR><CR>
