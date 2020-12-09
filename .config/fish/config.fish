@@ -32,7 +32,7 @@ alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 
 # programs
 abbr vim nvim
-abbr py python3
+abbr py python
 
 # zip-like tar extraction
 abbr untar "tar -xzf"
@@ -40,31 +40,32 @@ abbr untar "tar -xzf"
 # easy configs
 abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr convim "nvim ~/.config/nvim/init.vim"
+abbr conwm "nvim ~/.config/i3/config"
 
 # git
-abbr gs "git status"
+abbr gs "git status --short"
+abbr gc "git checkout"
 abbr gac "git add --all && git commit -m"
 
-abbr gds "gitdot status"
+abbr gds "gitdot status --short"
 abbr gdc "gitdot commit --all -m"
 
 
 # VARIABLES
 
 set fish_greeting ""
+
 set --export EDITOR nvim
 set --export VISUAL nvim
 set --export BROWSER firefox
+set --export PAGER less -RF
+set --export MANPAGER "nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
+    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' -"
 
 set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
 
 
 # EXECUTE ON LAUNCH
 
-# start tmux
-if status is-interactive
-and not set -q TMUX
-    exec tmux new-session -A -s def
-end
-
 eval (direnv hook fish)
+source /opt/asdf-vm/asdf.fish

@@ -77,6 +77,9 @@ set matchpairs+=<:>
 "noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 "noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+" copy till the end of the line
+nnoremap Y y$
+
 
 """""""""""""""""""""""""""""""""
 " NAVIGATION
@@ -115,10 +118,10 @@ set ignorecase
 set smartcase
 
 " search with f
-nmap f /
+nmap <leader>f /
 
 " unhighlight, think 'deselect'
-nmap <C-d> :noh<cr>
+nmap <leader>d :noh<cr>
 
 " Indentation
 set smarttab
@@ -135,6 +138,15 @@ set expandtab
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>r :Rg<CR>
 
+
+"""""""""""""""""""""""""""""""""
+" EASY ALIGN
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 """"""""""""""""""""""""""""""""
 " COC
