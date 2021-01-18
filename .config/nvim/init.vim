@@ -175,6 +175,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-json',
   \ 'coc-vimtex',
+  \ 'coc-css',
   \ ]
 
 set hidden
@@ -191,7 +192,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " nerdtree toggle
-nmap <silent> <C-n> :CocCommand explorer --width 32<CR>
+nmap <silent> <C-n> :CocCommand explorer<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -246,3 +247,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <F2> <Plug>(coc-rename)
 nnoremap <leader><F2> :CocSearch <C-R>=expand("<cword>")<CR><CR>
 vnoremap <leader><F2> :CocSearch '<,'><CR><CR>
+
+" Auto format imports
+nmap <leader>i :CocCommand tsserver.organizeImports<cr>
