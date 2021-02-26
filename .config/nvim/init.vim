@@ -9,18 +9,22 @@ call plug#begin()
 " General
 Plug 'tpope/vim-sensible'
 Plug 'machakann/vim-highlightedyank'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'
 Plug 'editorconfig/editorconfig-vim' " file-type specific settings
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'dohsimpson/vim-macroeditor' " usage: MacroEdit <register-letter>
 
 " Programming
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'jparise/vim-graphql'
 
 " Look
 Plug 'itchyny/lightline.vim'
@@ -52,6 +56,7 @@ set noswapfile
 set smartindent
 set incsearch
 set mouse+=a
+set modeline
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -127,7 +132,7 @@ set smartcase
 " search with f
 nmap <leader>f /
 
-" unhighlight, think 'deselect'
+" unhighlight, think 'deSelect'
 nmap <leader>d :noh<cr>
 
 " Indentation
@@ -143,6 +148,18 @@ set expandtab
 " PAGER SETTINGS
 
 let $PAGER=''
+
+
+"""""""""""""""""""""""""""""""""
+" COMMANDS
+
+nnoremap zz :q<CR>
+nnoremap ZZ :qa<CR>
+command Todo :e ~/todo.md
+
+" delete for good, without copying to clipboard
+nnoremap <leader>D "_d
+vnoremap <leader>D "_d
 
 
 """""""""""""""""""""""""""""""""
@@ -168,7 +185,7 @@ let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-explorer',
   \ 'coc-pairs',
-  \ 'coc-python',
+  \ 'coc-pyright',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-html',
@@ -176,6 +193,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-vimtex',
   \ 'coc-css',
+  \ 'coc-graphql',
   \ ]
 
 set hidden
@@ -192,7 +210,7 @@ set shortmess+=c
 set signcolumn=yes
 
 " nerdtree toggle
-nmap <silent> <C-n> :CocCommand explorer<CR>
+nmap <silent> <leader>e :CocCommand explorer<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -250,3 +268,22 @@ vnoremap <leader><F2> :CocSearch '<,'><CR><CR>
 
 " Auto format imports
 nmap <leader>i :CocCommand tsserver.organizeImports<cr>
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocAction('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
