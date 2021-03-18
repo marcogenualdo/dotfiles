@@ -18,6 +18,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-rooter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'dohsimpson/vim-macroeditor' " usage: MacroEdit <register-letter>
+Plug 'junegunn/goyo.vim'
 
 " Programming
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -157,6 +158,10 @@ nnoremap zz :q<CR>
 nnoremap ZZ :qa<CR>
 command Todo :e ~/todo.md
 
+" create a tmux session bound to this folder
+command TmuxPair execute "!fish ~/.config/nvim/pop-terminal.fish > /dev/null 2>&1"
+nnoremap <silent> <leader>t :TmuxPair<CR><CR>
+
 " delete for good, without copying to clipboard
 nnoremap <leader>D "_d
 vnoremap <leader>D "_d
@@ -165,8 +170,19 @@ vnoremap <leader>D "_d
 """""""""""""""""""""""""""""""""
 " FZF
 
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+
 nnoremap <leader>o :Files<CR>
-nnoremap <leader>r :Rg<CR>
+nnoremap <leader>r :RG<CR>
+nnoremap <leader>s :History/<CR>
 
 
 """""""""""""""""""""""""""""""""
