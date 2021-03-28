@@ -159,7 +159,7 @@ nnoremap ZZ :qa<CR>
 command Todo :e ~/todo.md
 
 " create a tmux session bound to this folder
-command TmuxPair execute "!fish ~/.config/nvim/pop-terminal.fish > /dev/null 2>&1"
+command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"
 nnoremap <silent> <leader>t :TmuxPair<CR><CR>
 
 " delete for good, without copying to clipboard
