@@ -70,6 +70,9 @@ highlight LineNr ctermfg=grey
 set ruler
 set number relativenumber
 
+" let lightline show the mode
+set noshowmode
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 
@@ -77,7 +80,6 @@ set scrolloff=5
 set ttyfast
 
 " Commands options
-set showmode
 set showcmd
 
 set wildmenu
@@ -130,9 +132,6 @@ nmap <leader>K :resize -5<CR>
 set ignorecase
 set smartcase
 
-" search with f
-nmap <leader>f /
-
 " unhighlight, think 'deSelect'
 nmap <leader>d :noh<cr>
 
@@ -166,6 +165,20 @@ nnoremap <silent> <leader>t :TmuxPair<CR><CR>
 nnoremap <leader>D "_d
 vnoremap <leader>D "_d
 
+"""""""""""""""""""""""""""""""""
+" LIGHTLINE
+
+let g:lightline = {
+	\ 'colorscheme': 'powerline',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'gitbranch': 'FugitiveHead',
+	\ },
+	\ }
+
 
 """""""""""""""""""""""""""""""""
 " FZF
@@ -180,9 +193,14 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 
+nnoremap <leader>f /
 nnoremap <leader>o :Files<CR>
 nnoremap <leader>r :RG<CR>
 nnoremap <leader>s :History/<CR>
+
+" VIM ROOTER
+let g:rooter_manual_only = 1
+let g:rooter_patterns = ['.git', 'Makefile', 'package.json', 'pyproject.toml']
 
 
 """""""""""""""""""""""""""""""""
@@ -209,6 +227,7 @@ let g:coc_global_extensions = [
   \ 'coc-json',
   \ 'coc-vimtex',
   \ 'coc-css',
+  \ 'coc-svg',
   \ 'coc-graphql',
   \ ]
 
