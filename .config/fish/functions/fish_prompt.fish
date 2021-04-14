@@ -3,7 +3,7 @@ function fish_prompt
         set -g VIRTUAL_ENV_DISABLE_PROMPT true
     end
 
-    set_color --bold $fish_color_cwd
+    set_color --bold $fish_color_escape
     printf '%s' (prompt_pwd)
     set_color normal
 

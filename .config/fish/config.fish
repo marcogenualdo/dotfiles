@@ -2,6 +2,19 @@
 
 fish_vi_key_bindings
 
+# Emulates vim's cursor shape behavior
+# Set the normal and visual mode cursors to a block
+set fish_cursor_default block
+# Set the insert mode cursor to a line
+set fish_cursor_insert line
+# Set the replace mode cursor to an underscore
+set fish_cursor_replace_one underscore
+# The following variable can be used to configure cursor shape in
+# visual mode, but due to fish_cursor_default, is redundant here
+set fish_cursor_visual block
+
+set --export fish_vi_force_cursor true
+
 
 # PROMPT
 
@@ -43,6 +56,7 @@ abbr convim "nvim ~/.config/nvim/init.vim"
 abbr conwm "nvim ~/.config/i3/config"
 
 # git
+alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 abbr gs "git status --short"
 abbr gc "git checkout"
 abbr gac "git add --all && git commit -m"
@@ -71,5 +85,8 @@ set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
 
 # EXECUTE ON LAUNCH
 
+# direnv
 eval (direnv hook fish)
+
+# version manager
 source /opt/asdf-vm/asdf.fish
