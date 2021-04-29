@@ -165,6 +165,10 @@ nnoremap <silent> <leader>t :TmuxPair<CR><CR>
 nnoremap <leader>D "_d
 vnoremap <leader>D "_d
 
+" auto-create xml tags
+inoremap <buffer> <C-c> <esc>yiwi<lt><esc>ea></><esc>hpF>a
+
+
 """""""""""""""""""""""""""""""""
 " LIGHTLINE
 

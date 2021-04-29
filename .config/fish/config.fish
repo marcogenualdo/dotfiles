@@ -82,6 +82,11 @@ set --export MANPAGER "nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
 
 set -U fish_user_paths /usr/local/lib/nodejs/node-v12.16.3-linux-x64/bin
 
+# load local system config
+set LOCAL_CONFIG_PATH $HOME/.config/fish/local.config.fish
+if test -e $LOCAL_CONFIG_PATH;
+    source $LOCAL_CONFIG_PATH;
+end
 
 # EXECUTE ON LAUNCH
 
