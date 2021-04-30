@@ -153,8 +153,8 @@ let $PAGER=''
 """""""""""""""""""""""""""""""""
 " COMMANDS
 
-nnoremap zz :q<CR>
-nnoremap ZZ :qa<CR>
+nnoremap zc :q<CR>
+nnoremap zz :qa<CR>
 command Todo :e ~/todo.md
 
 " create a tmux session bound to this folder

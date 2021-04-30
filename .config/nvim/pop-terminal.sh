@@ -1,5 +1,13 @@
 #!/bin/bash
 
-tmux new-session -ds $(basename "$PWD")
-tmux switchc -t $(basename "$PWD")
-tmux bind -n 'M-b' switchc -t $(tmux display-message -p '#S')
+# references
+THIS_SESSION=$(tmux display-message -p '#S')
+THIS_WINDOW=$(tmux display-message -p '#I')
+
+# terminal session
+TERM_SESSION=$THIS_SESSION-term
+tmux new-session -ds $TERM_SESSION
+tmux new-window -t $TERM_SESSION:$THIS_WINDOW
+
+tmux switchc -t $TERM_SESSION:$THIS_WINDOW
+tmux bind -n 'M-b' switchc -t $THIS_SESSION
