@@ -26,7 +26,7 @@ set --export fish_vi_force_cursor true
 alias xclip="xclip -selection clipboard"
 
 if command -v exa > /dev/null
-    alias ls exa
+    alias ls "exa -1"
     alias ll "exa -l"
     alias la "exa -la"
 end
