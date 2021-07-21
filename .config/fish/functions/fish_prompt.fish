@@ -8,7 +8,7 @@ function fish_prompt
     set_color normal
 
     if not set -q __git_cb
-        set __git_cb (set_color yellow)" (⚒ "(git branch ^/dev/null | grep \* | sed 's/* //')")"(set_color normal)
+        set __git_cb (set_color yellow)" (⚒ "(git branch 2> /dev/null | grep \* | sed 's/* //')")"(set_color normal)
     end
     printf '%s' $__git_cb
 
