@@ -135,6 +135,10 @@ set smartcase
 " unhighlight, think 'deSelect'
 nmap <leader>d :noh<cr>
 
+" keep cursor centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
 " Indentation
 set smarttab
 set cindent
@@ -153,8 +157,7 @@ let $PAGER=''
 """""""""""""""""""""""""""""""""
 " COMMANDS
 
-nnoremap zc :q<CR>
-nnoremap zz :qa<CR>
+nnoremap zx :qa<CR>
 command Todo :e ~/todo.md
 
 " create a tmux session bound to this folder
