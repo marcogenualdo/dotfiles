@@ -52,7 +52,7 @@ abbr untar "tar -xzf"
 
 # easy configs
 abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr convim "nvim ~/.config/nvim/init.vim"
+abbr convim "nvim -c 'cd ~/.config/nvim/' -c 'CocCommand explorer ~/.config/nvim' ~/.config/nvim/init.vim"
 abbr conwm "nvim ~/.config/i3/config"
 
 # git
