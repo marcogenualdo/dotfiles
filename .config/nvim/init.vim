@@ -81,8 +81,6 @@ nnoremap <leader>k <C-W><C-K>
 nnoremap <silent> <leader>m :tabn<CR>
 nnoremap <silent> <leader>n :tabp<CR>
 
-" cycle through buffers
-nnoremap <silent> <leader>b :bn<cr>
 " go to last opened buffer
 nnoremap <leader><leader> <C-^>
 
@@ -144,6 +142,6 @@ inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 " PLUGIN CONFIGS
 
 runtime ./plugconfig/lightline.vim
-runtime ./plugconfig/fzf.vim
 runtime ./plugconfig/easy-align.vim
 runtime ./plugconfig/coc.vim
+runtime ./plugconfig/telescope.vim
