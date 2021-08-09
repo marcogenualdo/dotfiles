@@ -3,36 +3,7 @@ let mapleader=" "
 
 """""""""""""""""""""""""""""""""
 " PLUGINS
-
-call plug#begin()
-
-" General
-Plug 'tpope/vim-sensible'
-Plug 'machakann/vim-highlightedyank'
-Plug 'machakann/vim-sandwich'
-Plug 'junegunn/vim-easy-align'
-Plug 'wellle/tmux-complete.vim'
-Plug 'editorconfig/editorconfig-vim' " file-type specific settings
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
-Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'dohsimpson/vim-macroeditor' " usage: MacroEdit <register-letter>
-Plug 'junegunn/goyo.vim'
-
-" Programming
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'tpope/vim-fugitive'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-commentary'
-Plug 'jparise/vim-graphql'
-
-" Look
-Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'tomasiser/vim-code-dark'
-
-call plug#end()
+runtime ./plug.vim
 
 
 " !on installation run %s/#1E1E1E/#111111/g in colors.vim
@@ -69,9 +40,6 @@ set wrap
 highlight LineNr ctermfg=grey
 set ruler
 set number relativenumber
-
-" let lightline show the mode
-set noshowmode
 
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
@@ -173,159 +141,9 @@ inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 
 
 """""""""""""""""""""""""""""""""
-" LIGHTLINE
+" PLUGIN CONFIGS
 
-let g:lightline = {
-	\ 'colorscheme': 'powerline',
-	\ 'active': {
-	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-	\ },
-	\ 'component_function': {
-	\   'gitbranch': 'FugitiveHead',
-	\ },
-	\ }
-
-
-"""""""""""""""""""""""""""""""""
-" FZF
-
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-
-nnoremap <leader>f /
-nnoremap <leader>o :Files<CR>
-nnoremap <leader>r :RG<CR>
-nnoremap <leader>s :History/<CR>
-
-" VIM ROOTER
-let g:rooter_manual_only = 1
-let g:rooter_patterns = ['.git', 'Makefile', 'package.json', 'pyproject.toml']
-
-
-"""""""""""""""""""""""""""""""""
-" EASY ALIGN
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-""""""""""""""""""""""""""""""""
-" COC
-
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-explorer',
-  \ 'coc-pairs',
-  \ 'coc-pyright',
-  \ 'coc-eslint',
-  \ 'coc-prettier',
-  \ 'coc-html',
-  \ 'coc-tsserver',
-  \ 'coc-json',
-  \ 'coc-vimtex',
-  \ 'coc-css',
-  \ 'coc-svg',
-  \ 'coc-graphql',
-  \ ]
-
-set hidden
-set updatetime=300
-
-" Some servers have issues with backup files, see #649.
-set nobackup
-set nowritebackup
-
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-
-" always show signcolumns
-set signcolumn=yes
-
-" nerdtree toggle
-nmap <silent> <leader>e :CocCommand explorer<CR>
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
-" position. Coc only does snippet and additional edit on confirm.
-" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Remap for rename current word
-nmap <F2> <Plug>(coc-rename)
-nnoremap <leader><F2> :CocSearch <C-R>=expand("<cword>")<CR><CR>
-vnoremap <leader><F2> :CocSearch '<,'><CR><CR>
-
-" Auto format imports
-nmap <leader>i :CocCommand tsserver.organizeImports<cr>
-
-" Use CTRL-S for selections ranges.
-" Requires 'textDocument/selectionRange' support of language server.
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
-
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+runtime ./plugconfig/lightline.vim
+runtime ./plugconfig/fzf.vim
+runtime ./plugconfig/easy-align.vim
+runtime ./plugconfig/coc.vim
