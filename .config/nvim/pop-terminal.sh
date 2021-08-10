@@ -10,4 +10,3 @@ tmux new-session -ds $TERM_SESSION
 tmux new-window -t $TERM_SESSION:$THIS_WINDOW
 
 tmux switchc -t $TERM_SESSION:$THIS_WINDOW
-tmux bind -n 'M-b' switchc -t $THIS_SESSION
