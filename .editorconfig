@@ -35,6 +35,10 @@ indent_style = space
 indent_style = space
 indent_size = 2
 
+[*.{lua,vim}]
+indent_style = space
+indent_size = 2
+
 [*.tf]
 indent_style = space
 indent_size = 2
