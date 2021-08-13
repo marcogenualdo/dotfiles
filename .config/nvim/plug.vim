@@ -8,6 +8,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'
 Plug 'editorconfig/editorconfig-vim' " file-type specific settings
 Plug 'junegunn/goyo.vim'
+Plug 'unblevable/quick-scope'
+Plug 'justinmk/vim-sneak'
 
 " Telescope
 Plug 'nvim-lua/popup.nvim'
@@ -19,6 +21,7 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
+Plug 'andymass/vim-matchup'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Look

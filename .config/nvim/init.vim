@@ -13,8 +13,8 @@ colorscheme codedark
 """""""""""""""""""""""""""""""""
 " DEPENDENCIES
 
-let g:python3_host_prog = '/home/mgenualdo/.asdf/installs/python/3.9.0/bin/python'
-" let g:loaded_python3_provider = 0
+" should use system python neovim package
+let g:python3_host_prog = '/bin/python'
 
 
 """""""""""""""""""""""""""""""""
@@ -123,7 +123,7 @@ let $PAGER=''
 """""""""""""""""""""""""""""""""
 " COMMANDS
 
-nnoremap zx :qa<CR>
+nnoremap qq :qa<CR>
 command Todo :e ~/todo.md
 
 " create a tmux session bound to this folder
@@ -143,5 +143,7 @@ inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 
 runtime ./plugconfig/lightline.vim
 runtime ./plugconfig/easy-align.vim
+runtime ./plugconfig/sneak.vim
 runtime ./plugconfig/coc.vim
 runtime ./plugconfig/telescope.vim
+runtime ./plugconfig/quickscope.vim
