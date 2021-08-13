@@ -44,7 +44,7 @@ alias lf="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
 alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 
 # programs
-abbr vim nvim
+abbr vi nvim
 abbr py python
 
 # zip-like tar extraction
@@ -52,13 +52,15 @@ abbr untar "tar -xzf"
 
 # easy configs
 abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr convim "nvim -c 'cd ~/.config/nvim/' -c 'CocCommand explorer ~/.config/nvim' ~/.config/nvim/init.vim"
+abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.vim"
 abbr conwm "nvim ~/.config/i3/config"
 
 # git
 alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 abbr gs "git status --short"
+abbr ga "git add"
 abbr gc "git checkout"
+abbr gC "git commit -m"
 abbr gac "git add --all && git commit -m"
 abbr gsd "git diff --compact-summary"
 abbr glog "git log --oneline --all --graph"
