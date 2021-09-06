@@ -57,6 +57,7 @@ abbr conwm "nvim ~/.config/i3/config"
 
 # git
 alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
+abbr g git
 abbr gs "git status --short"
 abbr ga "git add"
 abbr gc "git checkout"

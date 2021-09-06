@@ -13,8 +13,9 @@ colorscheme codedark
 """""""""""""""""""""""""""""""""
 " DEPENDENCIES
 
-" should use system python neovim package
+" should use system neovim packages
 let g:python3_host_prog = '/bin/python'
+let g:node_host_prog = '/bin/node'
 
 
 """""""""""""""""""""""""""""""""
