@@ -83,6 +83,9 @@ set --export PAGER less -RF
 set --export MANPAGER "nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
     -c 'map <SPACE> <C-D>' -c 'map b <C-U>' -"
 
+# npm/yarn global packages for $USER
+set --export npm_config_prefix $HOME/.local
+
 # load local system config
 set LOCAL_CONFIG_PATH $HOME/.config/fish/local.config.fish
 if test -e $LOCAL_CONFIG_PATH;
