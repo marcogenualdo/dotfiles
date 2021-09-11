@@ -15,7 +15,6 @@ colorscheme codedark
 
 " should use system neovim packages
 let g:python3_host_prog = '/bin/python'
-let g:node_host_prog = '/bin/node'
 
 
 """""""""""""""""""""""""""""""""
@@ -30,6 +29,9 @@ set smartindent
 set incsearch
 set mouse+=a
 set modeline
+
+" Allow buffer switching without saving
+set hidden
 
 " Use system clipboard
 set clipboard+=unnamedplus
@@ -145,6 +147,7 @@ inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 runtime ./plugconfig/lightline.vim
 runtime ./plugconfig/easy-align.vim
 runtime ./plugconfig/sneak.vim
-runtime ./plugconfig/coc.vim
 runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
+runtime ./plugconfig/goyo.vim
+runtime ./plugconfig/lsp.vim
