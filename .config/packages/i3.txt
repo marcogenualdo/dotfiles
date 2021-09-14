@@ -1,0 +1,10 @@
+alsa-firmware
+alsa-utils
+arandr
+autorandr
+feh
+flameshot
+polybar
+pulseaudio-bluetooth
+pulseaudio-ctl
+pulseaudio-zeroconf

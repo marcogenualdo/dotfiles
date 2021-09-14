@@ -1,0 +1,4 @@
+adwaita-icon-theme
+adwaita-maia
+dconf-editor
+gnome-tweaks

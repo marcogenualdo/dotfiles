@@ -18,12 +18,6 @@ makepkg -si
 cd ..
 rm -rf yay/
 
-sudo yay -S --needed - < base-packages.txt
-
-# neovim Plug
-curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 # importing configs
 git init --bare $HOME/.dotrepo
 alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
@@ -31,6 +25,13 @@ gitdot config --local status.showUntrackedFiles no
 
 gitdot remote add origin https://github.com/marcogenualdo/dotfiles.git
 gitdot pull origin dev
+
+# installing packages
+yay -S --needed - < $HOME/.config/packages/base.txt
+
+# neovim Plug
+curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # ranger: move to trash bind
 echo "
