@@ -20,35 +20,25 @@ let g:python3_host_prog = '/bin/python'
 """""""""""""""""""""""""""""""""
 " BASICS
 
-syntax on "syntax highlighting
-set nocompatible  "Set compatibility to Vim only.
+syntax on
 set encoding=utf-8
 set termguicolors
 set noswapfile
 set smartindent
-set incsearch
-set mouse+=a
-set modeline
-
-" Allow buffer switching without saving
-set hidden
-
-" Use system clipboard
-set clipboard+=unnamedplus
-
-" Automatically wrap text that extends beyond the screen length.
-set wrap
+set incsearch  " Show search result as you type
+set mouse+=a  " Enable mouse
+set modeline  " Read file first line as vim instructions
+set hidden  " Allow buffer switching without saving
+set clipboard+=unnamedplus  " Use system clipboard
+set wrap  " Automatically wrap text that extends beyond the screen length.
+set iskeyword+=-  " Treat kebab-cased words as one word object
+set scrolloff=5  " Display 5 lines above/below the cursor when scrolling with a mouse.
+set matchpairs+=<:>  " Highlight matching pairs of brackets
 
 " Show relative line numbers
 highlight LineNr ctermfg=grey
 set ruler
 set number relativenumber
-
-" Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5
-
-" Speed up scrolling
-set ttyfast
 
 " Commands options
 set showcmd
@@ -56,15 +46,34 @@ set showcmd
 set wildmenu
 set wildignore+=**/node_modules/**
 
-" Highlight matching pairs of brackets. Use the '%' character to jump between them.
-set matchpairs+=<:>
+
+"""""""""""""""""""""""""""""""""
+" COMMANDS
 
 " j/k will move virtual lines (lines that wrap)
-"noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-"noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+" noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
-" copy till the end of the line
 nnoremap Y y$
+nnoremap <silent> ZZ <cmd>qa<cr>
+nnoremap <silent> zq <cmd>q<cr>
+
+command Todo <cmd>e ~/todo.md
+
+" create a tmux session bound to this folder
+command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"
+nnoremap <silent> <leader>t <cmd>TmuxPair<cr><cr>
+
+" delete for good, without copying to clipboard
+nnoremap <leader>D "_d
+vnoremap <leader>D "_d
+
+" quickfix list
+nnoremap <C-n> <cmd>cnext<cr>
+nnoremap <C-p> <cmd>cprev<cr>
+
+" auto-create xml tags
+inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
 
 
 """""""""""""""""""""""""""""""""
@@ -74,24 +83,24 @@ nnoremap Y y$
 set splitright
 set splitbelow
 
-" better window splits
+" Switch window split
 nnoremap <leader>h <C-W><C-H>
 nnoremap <leader>l <C-W><C-L>
 nnoremap <leader>j <C-W><C-J>
 nnoremap <leader>k <C-W><C-K>
 
 " next/previous tab
-nnoremap <silent> <leader>m :tabn<CR>
-nnoremap <silent> <leader>n :tabp<CR>
+nnoremap <silent> <leader>m <cmd>tabn<cr>
+nnoremap <silent> <leader>n <cmd>tabp<cr>
 
 " go to last opened buffer
 nnoremap <leader><leader> <C-^>
 
-" resizing panes
-nmap <leader>L :vertical resize +10<CR>
-nmap <leader>H :vertical resize -10<CR>
-nmap <leader>J :resize +5<CR>
-nmap <leader>K :resize -5<CR>
+" resize panes
+nmap <leader>L <cmd>vertical resize +10<cr>
+nmap <leader>H <cmd>vertical resize -10<cr>
+nmap <leader>J <cmd>resize +5<cr>
+nmap <leader>K <cmd>resize -5<cr>
 
 
 """""""""""""""""""""""""""""""""
@@ -102,7 +111,7 @@ set ignorecase
 set smartcase
 
 " unhighlight, think 'deSelect'
-nmap <leader>d :noh<cr>
+nmap <silent> <leader>d <cmd>noh<cr>
 
 " keep cursor centered
 nnoremap n nzzzv
@@ -111,34 +120,7 @@ nnoremap N Nzzzv
 " Indentation
 set smarttab
 set cindent
-"set tabstop=2
-"set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
-
-
-"""""""""""""""""""""""""""""""""
-" PAGER SETTINGS
-
-let $PAGER=''
-
-
-"""""""""""""""""""""""""""""""""
-" COMMANDS
-
-nnoremap qq :qa<CR>
-command Todo :e ~/todo.md
-
-" create a tmux session bound to this folder
-command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"
-nnoremap <silent> <leader>t :TmuxPair<CR><CR>
-
-" delete for good, without copying to clipboard
-nnoremap <leader>D "_d
-vnoremap <leader>D "_d
-
-" auto-create xml tags
-inoremap <buffer> <C-x> <esc>yiwi<lt><esc>ea></><esc>hpF>a
+set expandtab  " always uses spaces instead of tab characters
 
 
 """""""""""""""""""""""""""""""""
@@ -151,3 +133,4 @@ runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
 runtime ./plugconfig/goyo.vim
 runtime ./plugconfig/lsp.vim
+runtime ./plugconfig/nerdtree.vim

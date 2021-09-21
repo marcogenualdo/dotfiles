@@ -92,6 +92,9 @@ if test -e $LOCAL_CONFIG_PATH;
     source $LOCAL_CONFIG_PATH;
 end
 
+# plugin configs
+fzf_configure_bindings --git_status=\cs --directory=\cf
+
 # EXECUTE ON LAUNCH
 
 # direnv
