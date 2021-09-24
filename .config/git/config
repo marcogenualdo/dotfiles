@@ -1,0 +1,8 @@
+[user]
+	email = marco.genualdo@alten.it
+[core]
+	pager = delta
+[alias]
+	lg    = log --all --graph --format=format:'%C(auto)%h%d %Cgreen%aN %Cblue%ai%n    %Creset%s'
+    df    = diff --compact-summary
+    s     = status --short

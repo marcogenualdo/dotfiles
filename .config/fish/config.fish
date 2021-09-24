@@ -56,20 +56,20 @@ abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.vim"
 abbr conwm "nvim ~/.config/i3/config"
 
 # git
-alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 abbr g git
-abbr gs "git status --short"
+abbr gs "git s"
 abbr ga "git add"
 abbr gc "git checkout"
 abbr gC "git commit -m"
 abbr gac "git add --all && git commit -m"
-abbr gsd "git diff --compact-summary"
-abbr glog "git log --oneline --all --graph"
+abbr gsd "git df"
+alias glg "git lg"
+alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 
 abbr gd "gitdot"
-abbr gds "gitdot status --short"
+abbr gds "gitdot s"
 abbr gdca "gitdot commit --all -m"
-abbr gdsd "gitdot diff --compact-summary"
+abbr gdsd "gitdot df"
 
 
 # VARIABLES
