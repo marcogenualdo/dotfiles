@@ -24,10 +24,8 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'mhartington/formatter.nvim'
-Plug 'kyazdani42/nvim-tree.lua'
+Plug 'andymass/vim-matchup'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Look
 Plug 'itchyny/lightline.vim'

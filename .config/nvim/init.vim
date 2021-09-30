@@ -15,6 +15,7 @@ colorscheme codedark
 
 " should use system neovim packages
 let g:python3_host_prog = '/bin/python'
+let g:node_host_prog = '/bin/node'
 
 
 """""""""""""""""""""""""""""""""
@@ -129,8 +130,7 @@ set expandtab  " always uses spaces instead of tab characters
 runtime ./plugconfig/lightline.vim
 runtime ./plugconfig/easy-align.vim
 runtime ./plugconfig/sneak.vim
+runtime ./plugconfig/coc.vim
 runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
 runtime ./plugconfig/goyo.vim
-runtime ./plugconfig/lsp.vim
-runtime ./plugconfig/tree.vim
