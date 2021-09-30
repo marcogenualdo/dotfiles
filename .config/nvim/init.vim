@@ -133,4 +133,4 @@ runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
 runtime ./plugconfig/goyo.vim
 runtime ./plugconfig/lsp.vim
-runtime ./plugconfig/nerdtree.vim
+runtime ./plugconfig/tree.vim
