@@ -72,6 +72,15 @@ local lspconfig = require'lspconfig'
 
 lspconfig.pyright.setup{}
 lspconfig.tsserver.setup{}
+
+_G.ts_organize_imports = function()
+    local params = {
+        command = "_typescript.organizeImports",
+        arguments = {vim.api.nvim_buf_get_name(0)},
+        title = ""
+    }
+    vim.lsp.buf.execute_command(params)
+end
 EOF
 
 " Actions
@@ -98,5 +107,13 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
-autocmd BufWritePre *{js,ts,jsx,tsx,py} lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWrite,BufEnter,InsertLeave * lua vim.lsp.diagnostic.set_loclist()
+" Formatting
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_typescript = ['prettier']
+
+command TsOrganizeImports call v:lua.ts_organize_imports()
+
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END

@@ -26,7 +26,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'mhartington/formatter.nvim'
+Plug 'sbdchd/neoformat'
 Plug 'kyazdani42/nvim-tree.lua'
 
 " Look
