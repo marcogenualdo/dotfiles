@@ -24,14 +24,19 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
-Plug 'sbdchd/neoformat'
 Plug 'kyazdani42/nvim-tree.lua'
+
+" Lsp
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'sbdchd/neoformat'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
 " Look
 Plug 'itchyny/lightline.vim'
-Plug 'morhetz/gruvbox'
 Plug 'tomasiser/vim-code-dark'
 
 call plug#end()
