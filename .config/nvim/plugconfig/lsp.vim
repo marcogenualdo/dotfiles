@@ -1,4 +1,4 @@
-set completeopt=menu,menuone,noselect
+set completeopt=menu,noselect
 
 lua << EOF
 local cmp = require'cmp'
@@ -71,6 +71,36 @@ capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_c
 
 lspconfig.pyright.setup{capabilities = capabilities}
 lspconfig.tsserver.setup{capabilities = capabilities}
+lspconfig.texlab.setup{
+  capabilities = capabilities,
+  cmd = { "texlab" },
+  filetypes = { "tex", "bib" },
+  settings = {
+    texlab = {
+      auxDirectory = ".",
+      bibtexFormatter = "texlab",
+      build = {
+        args = { "--synctex", "--keep-logs", "--keep-intermediates" },
+        executable = "tectonic",
+        forwardSearchAfter = false,
+        onSave = false
+      },
+      chktex = {
+        onEdit = false,
+        onOpenAndSave = false
+      },
+      diagnosticsDelay = 300,
+      formatterLineLength = 80,
+      forwardSearch = {
+        args = {}
+      },
+      latexFormatter = "latexindent",
+      latexindent = {
+        modifyLineBreaks = false
+      }
+    }
+  }
+}
 
 _G.ts_organize_imports = function()
     local params = {
@@ -107,5 +137,5 @@ command TsOrganizeImports call v:lua.ts_organize_imports()
 
 augroup fmt
   autocmd!
-  autocmd BufWritePre * | Neoformat
+  autocmd BufWritePre * Neoformat
 augroup END
