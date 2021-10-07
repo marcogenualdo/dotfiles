@@ -25,12 +25,12 @@ set --export fish_vi_force_cursor true
 
 alias xclip="xclip -selection clipboard"
 
-if command -v exa > /dev/null
+if command -v exa >/dev/null
     alias ls "exa -1"
     alias ll "exa -l"
     alias la "exa -la"
 end
-if command -v bat > /dev/null
+if command -v bat >/dev/null
     alias print bat
 end
 
@@ -66,11 +66,15 @@ abbr gsd "git df"
 alias glg "git lg"
 alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 
-abbr gd "gitdot"
+abbr gd gitdot
 abbr gds "gitdot s"
 abbr gdca "gitdot commit --all -m"
 abbr gdsd "gitdot df"
 
+# emojis
+for mode in default insert
+    bind --mode $mode \ce put_emoji
+end
 
 # VARIABLES
 
@@ -88,8 +92,8 @@ set --export npm_config_prefix $HOME/.local
 
 # load local system config
 set LOCAL_CONFIG_PATH $HOME/.config/fish/local.config.fish
-if test -e $LOCAL_CONFIG_PATH;
-    source $LOCAL_CONFIG_PATH;
+if test -e $LOCAL_CONFIG_PATH
+    source $LOCAL_CONFIG_PATH
 end
 
 # plugin configs
