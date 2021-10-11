@@ -132,5 +132,5 @@ runtime ./plugconfig/sneak.vim
 runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
 runtime ./plugconfig/goyo.vim
-runtime ./plugconfig/lsp.vim
 runtime ./plugconfig/tree.vim
+runtime ./plugconfig/lsp.vim
