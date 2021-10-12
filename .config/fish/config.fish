@@ -84,8 +84,7 @@ set --export EDITOR nvim
 set --export VISUAL nvim
 set --export BROWSER firefox
 set --export PAGER less -RF
-set --export MANPAGER "nvim -R -c 'set ft=man nomod nolist' -c 'map q :q<CR>' \
-    -c 'map <SPACE> <C-D>' -c 'map b <C-U>' -"
+set --export MANPAGER "nvim +Man!"
 
 # npm/yarn global packages for $USER
 set --export npm_config_prefix $HOME/.local
