@@ -25,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'kyazdani42/nvim-tree.lua'
+Plug 'jiangmiao/auto-pairs'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
