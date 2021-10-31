@@ -62,7 +62,7 @@ nnoremap Y y$
 nnoremap <silent> ZZ <cmd>qa<cr>
 nnoremap <silent> zq <cmd>q<cr>
 
-command Todo <cmd>e ~/todo.md
+command Todo :e ~/todo.md
 
 " create a tmux session bound to this folder
 command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"

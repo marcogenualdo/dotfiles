@@ -69,6 +69,7 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 local lspconfig = require'lspconfig'
 capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+require'rust-tools'.setup{}
 lspconfig.pyright.setup{capabilities = capabilities}
 lspconfig.tsserver.setup{capabilities = capabilities}
 lspconfig.texlab.setup{
@@ -130,8 +131,11 @@ nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
 
 " Formatting
+let g:neoformat_try_node_exe = 1
 let g:neoformat_enabled_python = ['black']
 let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_jsonc = ['prettier']
+
 
 command TsOrganizeImports call v:lua.ts_organize_imports()
 

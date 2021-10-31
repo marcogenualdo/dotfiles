@@ -71,6 +71,9 @@ abbr gds "gitdot s"
 abbr gdca "gitdot commit --all -m"
 abbr gdsd "gitdot df"
 
+# docker
+abbr dc "docker compose"
+
 # emojis
 for mode in default insert
     bind --mode $mode \ce put_emoji

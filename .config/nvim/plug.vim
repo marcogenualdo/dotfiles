@@ -35,6 +35,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'sbdchd/neoformat'
 Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
+Plug 'simrat39/rust-tools.nvim'
 
 " Look
 Plug 'itchyny/lightline.vim'
