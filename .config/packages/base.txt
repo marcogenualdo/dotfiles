@@ -11,7 +11,7 @@ gzip
 htop
 kitty
 make
-neovim-git
+neovim
 openssh
 os-prober
 peek

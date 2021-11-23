@@ -58,6 +58,7 @@ noremap! <C-h> <C-w>
 " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 " noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 
+nnoremap - /
 nnoremap Y y$
 nnoremap <silent> ZZ <cmd>qa<cr>
 nnoremap <silent> zq <cmd>q<cr>

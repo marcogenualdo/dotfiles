@@ -70,8 +70,11 @@ local lspconfig = require'lspconfig'
 capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require'rust-tools'.setup{}
+
 lspconfig.pyright.setup{capabilities = capabilities}
+
 lspconfig.tsserver.setup{capabilities = capabilities}
+
 lspconfig.texlab.setup{
   capabilities = capabilities,
   cmd = { "texlab" },
@@ -104,12 +107,23 @@ lspconfig.texlab.setup{
 }
 
 _G.ts_organize_imports = function()
+  -- check typescript client is attached
+  local active_clients = {}
+  for k, v in pairs(vim.lsp.get_active_clients()) do
+    active_clients[v.name] = true
+  end
+
+  if active_clients['tsserver'] then
+    -- execute organize imports
+    local bufnr = vim.api.nvim_get_current_buf()
+
     local params = {
         command = "_typescript.organizeImports",
-        arguments = {vim.api.nvim_buf_get_name(0)},
-        title = ""
+        arguments = { vim.api.nvim_buf_get_name(bufnr) },
     }
-    vim.lsp.buf.execute_command(params)
+
+    vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", params, 500)
+  end
 end
 EOF
 
@@ -141,5 +155,6 @@ command TsOrganizeImports call v:lua.ts_organize_imports()
 
 augroup fmt
   autocmd!
+  autocmd BufWritePre *.{ts,js,tsx,jsx} TsOrganizeImports
   autocmd BufWritePre * Neoformat
 augroup END
