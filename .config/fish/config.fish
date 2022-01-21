@@ -24,6 +24,8 @@ set --export fish_vi_force_cursor true
 # ALISES
 
 alias xclip="xclip -selection clipboard"
+abbr xi "xclip -i"
+abbr xo "xclip -o"
 
 if command -v exa >/dev/null
     alias ls "exa -1"
@@ -74,8 +76,10 @@ abbr gdsd "gitdot df"
 # docker
 abbr dc "docker compose"
 
-# emojis
+# binds
 for mode in default insert
+    bind --mode $mode \co lf
+    # emojis
     bind --mode $mode \ce put_emoji
 end
 
