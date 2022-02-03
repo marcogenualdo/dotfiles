@@ -53,7 +53,7 @@ abbr py python
 abbr untar "tar -xzf"
 
 # easy configs
-abbr confish "nvim ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
+abbr confish "nvim -c 'cd ~/.config/fish/' ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.vim"
 abbr conwm "nvim ~/.config/i3/config"
 

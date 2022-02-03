@@ -1,3 +1,3 @@
 function confe --description "open file in .config with $EDITOR"
-    find ~/.config -type f | fzf | xargs -ro $EDITOR
+    fd --exclude node_modules -t f . ~/.config | fzf | xargs -ro $EDITOR
 end
