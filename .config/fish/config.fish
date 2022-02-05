@@ -80,7 +80,7 @@ abbr dc "docker compose"
 for mode in default insert
     bind --mode $mode \co lf
     # emojis
-    bind --mode $mode \ce put_emoji
+    bind --mode $mode \cj put_emoji
 end
 
 # VARIABLES
@@ -92,6 +92,17 @@ set --export VISUAL nvim
 set --export BROWSER firefox
 set --export PAGER less -RF
 set --export MANPAGER "nvim +Man!"
+
+# colors
+set -g fish_color_autosuggestion 777777
+set -g fish_color_command 40FF40
+set -g fish_color_comment 80BE80
+set -g fish_color_end FF7B7B
+set -g fish_color_error A40000
+set -g fish_color_param 80FF80
+set -g fish_color_quote 90FF90
+set -g fish_color_redirection 7BFF7B
+set -g fish_color_operator 30F6DF
 
 # npm/yarn global packages for $USER
 set --export npm_config_prefix $HOME/.local
