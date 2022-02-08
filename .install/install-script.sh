@@ -29,6 +29,9 @@ gitdot pull origin dev
 # installing packages
 yay -S --needed - < $HOME/.config/packages/base.txt
 
+# shell plugins
+cat .config/fish/fish_plugins | tr '\n' ' ' | fisher install
+
 # neovim Plug
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
