@@ -6,7 +6,7 @@ let mapleader=" "
 runtime ./plug.vim
 
 
-" !on installation run %s/#1E1E1E/#111111/g in colors.vim
+" !on installation run %s/#1E1E1E/#000000/g in colors.vim
 colorscheme codedark
 
 
@@ -138,4 +138,5 @@ runtime ./plugconfig/telescope.vim
 runtime ./plugconfig/quickscope.vim
 runtime ./plugconfig/goyo.vim
 runtime ./plugconfig/tree.vim
+runtime ./plugconfig/cmp.vim
 runtime ./plugconfig/lsp.vim
