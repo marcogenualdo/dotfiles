@@ -9,3 +9,5 @@ pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
 rofi
+xorg-xinit
+xorg-server
