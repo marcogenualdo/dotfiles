@@ -1,0 +1,9 @@
+wayland
+waybar
+sway
+gammastep
+alsa-firmware
+alsa-utils
+pulseaudio-bluetooth
+pulseaudio-ctl
+pulseaudio-zeroconf
