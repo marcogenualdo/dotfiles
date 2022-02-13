@@ -36,18 +36,14 @@ cat .config/fish/fish_plugins | tr '\n' ' ' | fisher install
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# ranger: move to trash bind
-echo "
-map DD shell mv %s /home/\${USER}/.local/share/Trash/files/" >> ~/.config/ranger/rc.conf
-
-# gnome settings
-gsettings set org.gnome.shell.app-switcher current-workspace-only true
-
 # wrapping up
 chsh -s `which fish`
 
-printf "\nAll done!\n\nYou can disable sudo password by executing\n"
-echo "  sudo visudo"
-printf "and appending the line\n"
-echo "  <your-username> ALL=(ALL) NOPASSWD: ALL"
-printf "to the opened vi buffer."
+printf "
+All done!\n
+You can disable sudo password by executing\n
+      sudo visudo
+\nand appending the line\n
+      <your-username> ALL=(ALL) NOPASSWD: ALL
+\nto the opened vi buffer.
+"

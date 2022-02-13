@@ -7,3 +7,5 @@ alsa-utils
 pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
+rofi
+xwayland
