@@ -6,13 +6,30 @@
     // "width": 1280, // Waybar width
     "spacing": 12, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "custom/media"
+    ],
     "modules-center": ["clock"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "tray"],
+    "modules-right": [
+        "idle_inhibitor",
+        "tray",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "temperature",
+        "backlight",
+        "keyboard-state",
+        "battery",
+        "battery#bat2"
+    ],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
+        "icon-size": 32,
         "format": "{icon}",
         "format-icons": {
             "1": "",
@@ -147,7 +164,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "kitty alsamixer"
     },
     "custom/media": {
         "format": "{icon} {}",
