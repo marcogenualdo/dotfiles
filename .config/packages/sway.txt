@@ -1,11 +1,13 @@
-wayland
-waybar
-sway
-gammastep
 alsa-firmware
 alsa-utils
+gammastep
+grim
 pulseaudio-bluetooth
 pulseaudio-ctl
 pulseaudio-zeroconf
 rofi
+slurp
+sway
+waybar
+wayland
 xwayland
