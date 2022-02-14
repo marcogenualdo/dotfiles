@@ -17,9 +17,7 @@
         "tray",
         "pulseaudio",
         "network",
-        "cpu",
         "memory",
-        "temperature",
         "backlight",
         "keyboard-state",
         "battery",
@@ -99,7 +97,7 @@
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M %d-%m-%Y}"
+        "format-alt": "{:%d-%m-%Y}"
     },
     "cpu": {
         "format": "{usage}% ",

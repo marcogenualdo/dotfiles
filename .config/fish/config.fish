@@ -55,7 +55,7 @@ abbr untar "tar -xzf"
 # easy configs
 abbr confish "nvim -c 'cd ~/.config/fish/' ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
 abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.vim"
-abbr conwm "nvim ~/.config/i3/config"
+abbr conwm "nvim -c 'cd ~/.config/sway/' ~/.config/sway/config"
 
 # git
 abbr g git
