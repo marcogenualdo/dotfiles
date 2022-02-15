@@ -1,0 +1,24 @@
+input * {
+    xkb_layout "it"
+}
+
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
+# monitors
+output HDMI-A-2 resolution 1920x1080 position 0,0
+output * bg #000000 solid_color
+exec_always sh ../scripts/monitors.sh
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
