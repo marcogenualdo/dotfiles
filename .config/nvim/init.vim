@@ -131,7 +131,7 @@ set expandtab  " always uses spaces instead of tab characters
 """""""""""""""""""""""""""""""""
 " PLUGIN CONFIGS
 
-runtime ./plugconfig/lightline.vim
+runtime ./plugconfig/line.vim
 runtime ./plugconfig/easy-align.vim
 runtime ./plugconfig/sneak.vim
 runtime ./plugconfig/telescope.vim

@@ -6,7 +6,10 @@ require'rust-tools'.setup{}
 
 lspconfig.pyright.setup{capabilities = capabilities}
 
-lspconfig.tsserver.setup{capabilities = capabilities}
+lspconfig.tsserver.setup{
+  cmd = { "npx", "typescript-language-server", "--stdio" },
+  capabilities = capabilities
+}
 
 lspconfig.graphql.setup{}
 
@@ -75,6 +78,7 @@ nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<cr>
 
 " Diagnostics
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<cr>
+inoremap <silent> <C-k> <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <silent> <leader>sh <cmd>lua vim.lsp.buf.signature_help()<cr>
 nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
 nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
