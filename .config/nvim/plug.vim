@@ -7,7 +7,6 @@ Plug 'machakann/vim-sandwich'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'
 Plug 'editorconfig/editorconfig-vim' " file-type specific settings
-Plug 'junegunn/goyo.vim'
 Plug 'unblevable/quick-scope'
 Plug 'justinmk/vim-sneak'
 
@@ -29,16 +28,23 @@ Plug 'jiangmiao/auto-pairs'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
+Plug 'sbdchd/neoformat'
+Plug 'simrat39/rust-tools.nvim'
+
+" Completion
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
-Plug 'sbdchd/neoformat'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'simrat39/rust-tools.nvim'
+
+" Snippets
+Plug 'L3MON4D3/LuaSnip'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'rafamadriz/friendly-snippets'
 
 " Look
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'tomasiser/vim-code-dark'
+Plug 'junegunn/goyo.vim'
 
 call plug#end()
