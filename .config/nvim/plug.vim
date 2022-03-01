@@ -28,6 +28,7 @@ Plug 'jiangmiao/auto-pairs'
 
 " Lsp
 Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
 Plug 'sbdchd/neoformat'
 Plug 'simrat39/rust-tools.nvim'
 
@@ -36,6 +37,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'onsails/lspkind-nvim'
 
 " Snippets
 Plug 'L3MON4D3/LuaSnip'

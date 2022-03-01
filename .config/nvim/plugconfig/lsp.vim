@@ -1,48 +1,66 @@
 lua << EOF
 local lspconfig = require'lspconfig'
-capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspinstaller = require'nvim-lsp-installer'
+local capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require'rust-tools'.setup{}
 
-lspconfig.pyright.setup{capabilities = capabilities}
+local common_configs = { capabilities = capabilities }
 
-lspconfig.tsserver.setup{
-  cmd = { "npx", "typescript-language-server", "--stdio" },
-  capabilities = capabilities
-}
+local server_configs = {
+  sumneko_lua = {
+    settings = {
+      Lua = {
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = {'vim'},
+        },
+      }
+    }
+  },
 
-lspconfig.graphql.setup{}
+  pyright = {},
 
-lspconfig.texlab.setup{
-  capabilities = capabilities,
-  cmd = { "texlab" },
-  filetypes = { "tex", "bib" },
-  settings = {
-    texlab = {
-      auxDirectory = ".",
-      bibtexFormatter = "texlab",
-      build = {
-        args = { "--synctex", "--keep-logs", "--keep-intermediates" },
-        executable = "tectonic",
-        forwardSearchAfter = false,
-        onSave = false
-      },
-      chktex = {
-        onEdit = false,
-        onOpenAndSave = false
-      },
-      diagnosticsDelay = 300,
-      formatterLineLength = 80,
-      forwardSearch = {
-        args = {}
-      },
-      latexFormatter = "latexindent",
-      latexindent = {
-        modifyLineBreaks = false
+  tsserver = {},
+
+  graphql = {},
+
+  texlab = {
+    filetypes = { "tex", "bib" },
+    settings = {
+      texlab = {
+        auxDirectory = ".",
+        bibtexFormatter = "texlab",
+        build = {
+          args = { "--synctex", "--keep-logs", "--keep-intermediates" },
+          executable = "tectonic",
+          forwardSearchAfter = false,
+          onSave = false
+        },
+        chktex = {
+          onEdit = false,
+          onOpenAndSave = false
+        },
+        diagnosticsDelay = 300,
+        formatterLineLength = 80,
+        forwardSearch = {
+          args = {}
+        },
+        latexFormatter = "latexindent",
+        latexindent = {
+          modifyLineBreaks = false
+        }
       }
     }
   }
 }
+
+lspinstaller.on_server_ready(function(server)
+  local custom_configs = server_configs[server.name] or {}
+  local config = vim.tbl_deep_extend('force', common_configs, custom_configs)
+
+  server:setup(config)
+end)
 
 _G.ts_organize_imports = function()
   -- check typescript client is attached

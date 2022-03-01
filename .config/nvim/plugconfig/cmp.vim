@@ -3,6 +3,7 @@ set completeopt=menu,noselect
 lua << EOF
 local cmp = require'cmp'
 local luasnip = require'luasnip'
+local lspkind = require'lspkind'
 
 local tab_complete = function(fallback)
   if cmp.visible() then
@@ -50,6 +51,19 @@ cmp.setup{
     { name = 'luasnip' },
     { name = 'path' },
     { name = 'buffer' },
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol_text', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+        latex_symbols = "[Latex]",
+      })
+    })
   }
 }
 
