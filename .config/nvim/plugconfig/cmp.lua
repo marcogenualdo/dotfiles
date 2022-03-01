@@ -1,6 +1,5 @@
-set completeopt=menu,noselect
+vim.cmd [[set completeopt=menu,noselect]]
 
-lua << EOF
 local cmp = require'cmp'
 local luasnip = require'luasnip'
 local lspkind = require'lspkind'
@@ -69,5 +68,3 @@ cmp.setup{
 
 -- load snippet libraries
 require('luasnip.loaders.from_vscode').load()
-EOF
-

@@ -1,4 +1,3 @@
-lua << EOF
 require('lualine').setup{
   options = {
     theme = 'powerline',
@@ -7,4 +6,3 @@ require('lualine').setup{
     -- section_separators = { left = '', right = '' },
   }
 }
-EOF
