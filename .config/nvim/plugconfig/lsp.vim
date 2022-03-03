@@ -6,7 +6,6 @@ nnoremap <silent> <leader>n <cmd>lua vim.lsp.buf.rename()<cr>
 " Definitions
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<cr>
 nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<cr>
-nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<cr>
 nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<cr>
 
 " Diagnostics

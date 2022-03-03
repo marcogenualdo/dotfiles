@@ -31,6 +31,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'sbdchd/neoformat'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'folke/trouble.nvim'
 
 " Completion
 Plug 'hrsh7th/cmp-nvim-lsp'

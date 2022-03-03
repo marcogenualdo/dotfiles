@@ -142,3 +142,4 @@ runtime ./plugconfig/tree.vim
 runtime ./plugconfig/cmp.lua
 runtime ./plugconfig/lsp.lua
 runtime ./plugconfig/lsp.vim
+runtime ./plugconfig/trouble.vim
