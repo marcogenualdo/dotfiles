@@ -1,5 +1,6 @@
 input * {
     xkb_layout "it"
+    xkb_options caps:swapescape
 }
 
 input type:touchpad {
