@@ -1,4 +1,3 @@
-lua << EOF
 require'nvim-tree'.setup {
   disable_netrw        = false,
   hijack_netrw         = true,
@@ -82,6 +81,5 @@ require'nvim-tree'.setup {
     }
   }
 }
-EOF
 
-nnoremap <leader>e <cmd>NvimTreeToggle<cr>
+vim.cmd [[nnoremap <leader>e <cmd>NvimTreeToggle<cr>]]

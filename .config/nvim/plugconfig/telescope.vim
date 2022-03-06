@@ -7,9 +7,9 @@ require('telescope').setup{
 
     mappings = {
       i = {
-          ["<C-k>"] = actions.move_selection_previous,
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-f>"] = actions.send_selected_to_qflist,
+        ["<C-k>"] = actions.move_selection_previous,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-f>"] = actions.send_selected_to_qflist,
       }
     }
   },

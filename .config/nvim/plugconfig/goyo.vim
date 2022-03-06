@@ -1,1 +1,6 @@
-nnoremap <leader>g <cmd>Goyo<cr>
+function Ngoyo()
+  Goyo
+  set number relativenumber
+endfunction
+
+nnoremap <leader>g <cmd>call Ngoyo()<cr>
