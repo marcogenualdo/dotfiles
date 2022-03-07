@@ -1,9 +1,6 @@
 function gcp --description "git commit and push"
-    git commit -m $argv[1]
-    if set -q argv[3]
-    	git push $argv[2] $argv[3]
-    else
-	git push
-    end
-end
+    argparse u/set-upstream -- $argv
 
+    git commit -m $argv[1]
+    git push $_flag_u $argv[2..3]
+end
