@@ -13,6 +13,8 @@ gzip
 htop
 kitty
 make
+man-db
+man-pages
 neovim
 openssh
 os-prober

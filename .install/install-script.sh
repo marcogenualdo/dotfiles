@@ -8,9 +8,8 @@ if [ $USER == "root" ]; then
     exit
 fi
 
-# installing basic packages
-sudo pacman -Syu
-sudo pacman -S base-devel git
+# installing needed packages
+su -c "pacman -Syu && pacman -S base-devel git"
 
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -26,11 +25,11 @@ gitdot config --local status.showUntrackedFiles no
 gitdot remote add origin https://github.com/marcogenualdo/dotfiles.git
 gitdot pull origin dev
 
-# installing packages
+# base packages
 yay -S --needed - < $HOME/.config/packages/base.txt
 
 # shell plugins
-cat .config/fish/fish_plugins | tr '\n' ' ' | fisher install
+fish -c "cat $HOME/.config/fish/fish_plugins | tr '\n' ' ' | fisher install"
 
 # neovim Plug
 curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
