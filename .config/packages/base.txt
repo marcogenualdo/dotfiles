@@ -20,7 +20,6 @@ openssh
 os-prober
 peek
 ripgrep
-skypeforlinux-stable-bin
 sudo
 tar
 tldr
