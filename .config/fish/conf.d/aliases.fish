@@ -8,7 +8,7 @@ if command -v exa >/dev/null
     alias la "exa -la"
 end
 if command -v bat >/dev/null
-    alias print bat
+    alias cat bat
 end
 
 # lock screen
