@@ -46,6 +46,8 @@ set showcmd
 set wildmenu
 set wildignore+=**/node_modules/**
 
+set laststatus=3
+
 
 """""""""""""""""""""""""""""""""
 " COMMANDS

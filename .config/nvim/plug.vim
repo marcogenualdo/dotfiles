@@ -47,6 +47,7 @@ Plug 'rafamadriz/friendly-snippets'
 
 " Look
 Plug 'nvim-lualine/lualine.nvim'
+let g:codedark_transparent=1
 Plug 'tomasiser/vim-code-dark'
 Plug 'junegunn/goyo.vim'
 
