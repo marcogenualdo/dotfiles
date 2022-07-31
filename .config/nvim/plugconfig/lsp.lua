@@ -23,6 +23,8 @@ local server_configs = {
 
   graphql = {},
 
+  terraform_lsp = {},
+
   texlab = {
     filetypes = { "tex", "bib" },
     settings = {

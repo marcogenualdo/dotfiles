@@ -20,6 +20,7 @@ let g:neoformat_try_node_exe = 1
 let g:neoformat_enabled_python = ['black']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_jsonc = ['prettier']
+let g:neoformat_enabled_xml = ['prettier']
 
 
 command TsOrganizeImports call v:lua.ts_organize_imports()
