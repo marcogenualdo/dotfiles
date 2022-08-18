@@ -12,8 +12,8 @@ nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<cr>
 nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<cr>
 inoremap <silent> <C-k> <cmd>lua vim.lsp.buf.hover()<cr>
 nnoremap <silent> <leader>sh <cmd>lua vim.lsp.buf.signature_help()<cr>
-nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<cr>
-nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<cr>
+nnoremap <silent> g[ <cmd>lua vim.diagnostic.goto_prev()<cr>
+nnoremap <silent> g] <cmd>lua vim.diagnostic.goto_next()<cr>
 
 " Formatting
 let g:neoformat_try_node_exe = 1
