@@ -19,6 +19,7 @@ neovim
 openssh
 os-prober
 peek
+ranger
 ripgrep
 sudo
 tar
@@ -26,5 +27,6 @@ tldr
 tmux
 ttf-dejavu
 ttf-fira-code
+ueberzug
 wget
 xclip
