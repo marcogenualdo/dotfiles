@@ -1,7 +1,7 @@
-local lspinstaller = require'nvim-lsp-installer'
-local capabilities = require'cmp_nvim_lsp'.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspinstaller = require 'nvim-lsp-installer'
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require'rust-tools'.setup{}
+require('rust-tools').setup {}
 
 local common_configs = { capabilities = capabilities }
 
@@ -11,10 +11,10 @@ local server_configs = {
       Lua = {
         diagnostics = {
           -- Get the language server to recognize the `vim` global
-          globals = {'vim'},
+          globals = { 'vim' },
         },
-      }
-    }
+      },
+    },
   },
 
   pyright = {},
@@ -26,33 +26,33 @@ local server_configs = {
   terraform_lsp = {},
 
   texlab = {
-    filetypes = { "tex", "bib" },
+    filetypes = { 'tex', 'bib' },
     settings = {
       texlab = {
-        auxDirectory = ".",
-        bibtexFormatter = "texlab",
+        auxDirectory = '.',
+        bibtexFormatter = 'texlab',
         build = {
-          args = { "--synctex", "--keep-logs", "--keep-intermediates" },
-          executable = "tectonic",
+          args = { '--synctex', '--keep-logs', '--keep-intermediates' },
+          executable = 'tectonic',
           forwardSearchAfter = false,
-          onSave = false
+          onSave = false,
         },
         chktex = {
           onEdit = false,
-          onOpenAndSave = false
+          onOpenAndSave = false,
         },
         diagnosticsDelay = 300,
         formatterLineLength = 80,
         forwardSearch = {
-          args = {}
+          args = {},
         },
-        latexFormatter = "latexindent",
+        latexFormatter = 'latexindent',
         latexindent = {
-          modifyLineBreaks = false
-        }
-      }
-    }
-  }
+          modifyLineBreaks = false,
+        },
+      },
+    },
+  },
 }
 
 lspinstaller.on_server_ready(function(server)
@@ -74,10 +74,10 @@ _G.ts_organize_imports = function()
     local bufnr = vim.api.nvim_get_current_buf()
 
     local params = {
-        command = "_typescript.organizeImports",
-        arguments = { vim.api.nvim_buf_get_name(bufnr) },
+      command = '_typescript.organizeImports',
+      arguments = { vim.api.nvim_buf_get_name(bufnr) },
     }
 
-    vim.lsp.buf_request_sync(bufnr, "workspace/executeCommand", params, 500)
+    vim.lsp.buf_request_sync(bufnr, 'workspace/executeCommand', params, 500)
   end
 end

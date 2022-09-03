@@ -3,11 +3,7 @@ let mapleader=" "
 
 """""""""""""""""""""""""""""""""
 " PLUGINS
-runtime ./plug.vim
-
-
-" !on installation run %s/#1E1E1E/#000000/g in colors.vim
-colorscheme codedark
+runtime ./plugins.lua
 
 
 """""""""""""""""""""""""""""""""
@@ -134,14 +130,14 @@ set expandtab  " always uses spaces instead of tab characters
 """""""""""""""""""""""""""""""""
 " PLUGIN CONFIGS
 
-runtime ./plugconfig/line.lua
-runtime ./plugconfig/easy-align.vim
-runtime ./plugconfig/sneak.vim
-runtime ./plugconfig/telescope.vim
-runtime ./plugconfig/quickscope.vim
-runtime ./plugconfig/goyo.vim
-runtime ./plugconfig/tree.lua
-runtime ./plugconfig/cmp.lua
-runtime ./plugconfig/lsp.lua
-runtime ./plugconfig/lsp.vim
-runtime ./plugconfig/trouble.vim
+" runtime ./plugconfig/line.lua
+" runtime ./plugconfig/easy-align.vim
+" runtime ./plugconfig/sneak.vim
+" runtime ./plugconfig/telescope.vim
+" runtime ./plugconfig/quickscope.vim
+" runtime ./plugconfig/goyo.vim
+" runtime ./plugconfig/tree.lua
+" runtime ./plugconfig/cmp.lua
+" runtime ./plugconfig/lsp.lua
+" runtime ./plugconfig/lsp.vim
+" runtime ./plugconfig/trouble.vim
