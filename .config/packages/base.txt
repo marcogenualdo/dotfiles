@@ -21,6 +21,7 @@ os-prober
 peek
 ranger
 ripgrep
+srm
 sudo
 tar
 tldr

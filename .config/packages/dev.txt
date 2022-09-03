@@ -2,3 +2,4 @@ asdf-vm
 direnv
 docker
 jq
+tmuxinator
