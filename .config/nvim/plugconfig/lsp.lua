@@ -1,5 +1,8 @@
-local lspinstaller = require 'nvim-lsp-installer'
+require('mason').setup()
+require('mason-lspconfig').setup()
+
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local lspconfig = require 'lspconfig'
 
 require('rust-tools').setup {}
 
@@ -55,12 +58,12 @@ local server_configs = {
   },
 }
 
-lspinstaller.on_server_ready(function(server)
-  local custom_configs = server_configs[server.name] or {}
+for name, maybe_config in pairs(server_configs) do
+  local custom_configs = maybe_config or {}
   local config = vim.tbl_deep_extend('force', common_configs, custom_configs)
 
-  server:setup(config)
-end)
+  lspconfig[name].setup(config)
+end
 
 _G.ts_organize_imports = function()
   -- check typescript client is attached
@@ -81,3 +84,5 @@ _G.ts_organize_imports = function()
     vim.lsp.buf_request_sync(bufnr, 'workspace/executeCommand', params, 500)
   end
 end
+
+vim.cmd [[runtime ./lsp.vim]]

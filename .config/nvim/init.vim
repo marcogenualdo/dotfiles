@@ -129,19 +129,3 @@ nnoremap N Nzzzv
 set smarttab
 set cindent
 set expandtab  " always uses spaces instead of tab characters
-
-
-"""""""""""""""""""""""""""""""""
-" PLUGIN CONFIGS
-
-" runtime ./plugconfig/line.lua
-" runtime ./plugconfig/easy-align.vim
-" runtime ./plugconfig/sneak.vim
-" runtime ./plugconfig/telescope.vim
-" runtime ./plugconfig/quickscope.vim
-" runtime ./plugconfig/goyo.vim
-" runtime ./plugconfig/tree.lua
-" runtime ./plugconfig/cmp.lua
-" runtime ./plugconfig/lsp.lua
-" runtime ./plugconfig/lsp.vim
-" runtime ./plugconfig/trouble.vim
