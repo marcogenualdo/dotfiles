@@ -1,8 +1,12 @@
 call plug#begin()
 
+" Meta
+Plug 'dstein64/vim-startuptime'
+
 " General
 Plug 'tpope/vim-sensible'
 Plug 'machakann/vim-highlightedyank'
+Plug 'mbbill/undotree'
 Plug 'machakann/vim-sandwich'
 Plug 'junegunn/vim-easy-align'
 Plug 'wellle/tmux-complete.vim'

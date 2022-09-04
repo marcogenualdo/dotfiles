@@ -69,8 +69,12 @@ command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"
 nnoremap <silent> <leader>t <cmd>TmuxPair<cr><cr>
 
 " delete for good, without copying to clipboard
-nnoremap <leader>D "_d
-vnoremap <leader>D "_d
+nnoremap gm m
+vnoremap gm m
+
+nnoremap mm "_dd
+nnoremap m "_d
+vnoremap m "_d
 
 " quickfix list
 nnoremap <C-n> <cmd>cnext<cr>
