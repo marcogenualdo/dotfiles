@@ -16,6 +16,7 @@ set --export MANPAGER "nvim +Man!"
 
 # npm/yarn global packages for $USER
 set --export npm_config_prefix $HOME/.local
+set --export fish_user_paths $HOME/.local/bin
 
 # load local system config
 set LOCAL_CONFIG_PATH $HOME/.config/fish/local.config.fish
