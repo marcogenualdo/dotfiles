@@ -1,3 +1,4 @@
+-- Loading modules
 require('mason').setup()
 require('mason-lspconfig').setup()
 
@@ -6,6 +7,7 @@ local lspconfig = require 'lspconfig'
 
 require('rust-tools').setup {}
 
+-- Language servers configs
 local common_configs = { capabilities = capabilities }
 
 local server_configs = {
@@ -58,6 +60,7 @@ local server_configs = {
   },
 }
 
+-- Loading configs
 for name, maybe_config in pairs(server_configs) do
   local custom_configs = maybe_config or {}
   local config = vim.tbl_deep_extend('force', common_configs, custom_configs)
