@@ -69,12 +69,9 @@ command TmuxPair execute "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1"
 nnoremap <silent> <leader>t <cmd>TmuxPair<cr><cr>
 
 " delete for good, without copying to clipboard
-nnoremap gm m
-vnoremap gm m
-
-nnoremap mm "_dd
-nnoremap m "_d
-vnoremap m "_d
+nnoremap <leader>dd "_dd
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
 
 " quickfix list
 nnoremap <C-n> <cmd>cnext<cr>
@@ -118,8 +115,8 @@ nmap <leader>K <cmd>resize -5<cr>
 set ignorecase
 set smartcase
 
-" unhighlight, think 'deSelect'
-nmap <silent> <leader>d <cmd>noh<cr>
+" unhighlight
+nmap <silent> <leader>h <cmd>noh<cr>
 
 " keep cursor centered
 nnoremap n nzzzv
