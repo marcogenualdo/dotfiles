@@ -116,7 +116,7 @@ set ignorecase
 set smartcase
 
 " unhighlight
-nmap <silent> <leader>h <cmd>noh<cr>
+nmap <silent> <C-h> <cmd>noh<cr>
 
 " keep cursor centered
 nnoremap n nzzzv
