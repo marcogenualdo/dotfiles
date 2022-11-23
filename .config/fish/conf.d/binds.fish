@@ -18,5 +18,3 @@ for mode in default insert
     # emojis
     bind --mode $mode \cj put_emoji
 end
-
-fzf_configure_bindings --git_status=\cs --directory=\cf
