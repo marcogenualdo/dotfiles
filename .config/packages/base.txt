@@ -28,6 +28,7 @@ tldr
 tmux
 ttf-dejavu
 ttf-fira-code
+ttf-nerd-fonts-symbols
 ueberzug
 wget
 xclip
