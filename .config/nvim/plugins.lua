@@ -4,10 +4,8 @@ return require('packer').startup {
   function(use)
     -- Meta
     use 'wbthomason/packer.nvim'
-    use 'dstein64/vim-startuptime'
 
     -- General
-    use 'tpope/vim-sensible'
     use 'machakann/vim-highlightedyank'
     use 'machakann/vim-sandwich'
     use 'mbbill/undotree'
@@ -20,7 +18,6 @@ return require('packer').startup {
     use {
       'nvim-telescope/telescope.nvim',
       requires = {
-        'nvim-lua/popup.nvim',
         'nvim-lua/plenary.nvim',
         'nvim-telescope/telescope-fzf-native.nvim',
       },
@@ -29,7 +26,7 @@ return require('packer').startup {
 
     -- Programming
     use 'tpope/vim-fugitive'
-    use 'sheerun/vim-polyglot'
+    -- use 'sheerun/vim-polyglot'
     use 'tpope/vim-commentary'
     use {
       'kyazdani42/nvim-tree.lua',
@@ -57,7 +54,6 @@ return require('packer').startup {
       config = 'vim.cmd[[runtime ./plugconfig/trouble.vim]]',
     }
     use 'sbdchd/neoformat'
-    use 'simrat39/rust-tools.nvim'
 
     -- Completion
     use {
@@ -82,9 +78,17 @@ return require('packer').startup {
       config = 'vim.cmd[[runtime ./plugconfig/line.lua]]',
     }
     use {
-      'tomasiser/vim-code-dark',
-      setup = 'vim.g.codedark_transparent=1',
-      config = 'vim.cmd[[colorscheme codedark]]',
+      'Mofiqul/vscode.nvim',
+      config = function()
+        require('vscode').setup({
+            transparent = true,
+            italic_comments = true,
+
+            -- Disable nvim-tree background color
+            disable_nvimtree_bg = true,
+        })
+        require('vscode').load()
+      end,
     }
     use {
       "shortcuts/no-neck-pain.nvim",

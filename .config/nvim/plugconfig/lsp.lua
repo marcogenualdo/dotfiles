@@ -5,22 +5,11 @@ require('mason-lspconfig').setup()
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require 'lspconfig'
 
-require('rust-tools').setup {}
-
 -- Language servers configs
 local common_configs = { capabilities = capabilities }
 
 local server_configs = {
-  sumneko_lua = {
-    settings = {
-      Lua = {
-        diagnostics = {
-          -- Get the language server to recognize the `vim` global
-          globals = { 'vim' },
-        },
-      },
-    },
-  },
+  -- lua_ls = {},
 
   pyright = {},
 
@@ -28,7 +17,7 @@ local server_configs = {
 
   graphql = {},
 
-  terraform_lsp = {},
+  terraformls = {},
 
   texlab = {
     filetypes = { 'tex', 'bib' },

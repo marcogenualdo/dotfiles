@@ -48,5 +48,6 @@ abbr gds "gitdot s"
 abbr gdca "gitdot commit --all -m"
 abbr gdsd "gitdot df"
 
-# docker
+# programming
 abbr dc "docker compose"
+abbr tf terraform
