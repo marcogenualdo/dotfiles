@@ -22,15 +22,28 @@ lvim.plugins = {
     }
   },
   { "tpope/vim-surround" },
+  {
+    'Exafunction/codeium.vim',
+    event = 'BufEnter',
+    config = function()
+      vim.g.codeium_disable_bindings = 1
+      vim.keymap.set('i', '<C-S>', function() return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
+      vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](1) end,
+        { expr = true, silent = true })
+      vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](-1) end,
+        { expr = true, silent = true })
+      -- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+    end
+  },
 }
 
 -- look
 lvim.colorscheme = "vscode"
 lvim.builtin.lualine.options = {
-    theme = 'powerline',
-    globalstatus = true,
-    component_separators = '',
-    section_separators = { left = '', right = '' },
+  theme = 'powerline',
+  globalstatus = true,
+  component_separators = '',
+  section_separators = { left = '', right = '' },
 }
 
 
@@ -49,7 +62,7 @@ lvim.keys.normal_mode["zq"] = "<cmd>q<cr>"
 vim.api.nvim_create_user_command("Todo", "edit ~/todo.md", {})
 
 --  create a tmux session bound to this folder
-vim.api.nvim_create_user_command("TmuxPair", "!bash ~/.config/nvim/pop-terminal.sh > /dev/null 2>&1", {})
+vim.api.nvim_create_user_command("TmuxPair", "!bash ~/.config/lvim/pop-terminal.sh > /dev/null 2>&1", {})
 lvim.keys.normal_mode["<leader>t"] = "<cmd>TmuxPair<cr><cr>"
 
 -- delete for good, without copying to clipboard
@@ -69,7 +82,7 @@ lvim.builtin.which_key.mappings["n"] = { "<cmd>tabp<cr>", "Navigation" }
 lvim.builtin.which_key.mappings["<leader>"] = { "<C-^>", "Navigation" }
 
 -- -- unhighlight
-lvim.keys.normal_mode["<C-h>"] = "<cmd>noh<cr>"
+lvim.builtin.which_key.mappings["h"] = "<cmd>noh<cr>"
 
 -- -- telescope
 local actions = require("telescope.actions")
@@ -78,9 +91,15 @@ lvim.builtin.telescope.defaults.mappings.i = {
   ["<C-j>"] = actions.move_selection_next,
   ["<C-f>"] = actions.send_selected_to_qflist,
 }
-lvim.builtin.which_key.mappings["o"] = { "<cmd>Telescope find_files<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>Telescope find_files<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>Telescope live_grep<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Telescope command_history<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Telescope" }
+
+
+---------------------------------
+-- CODE
+
+-- formatting
+lvim.format_on_save.enabled = true
