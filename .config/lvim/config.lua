@@ -74,6 +74,10 @@ lvim.keys.normal_mode["<leader>d"] = "_d"
 lvim.keys.normal_mode["<C-n>"] = "<cmd>cnext<cr>"
 lvim.keys.normal_mode["<C-p>"] = "<cmd>cprev<cr>"
 
+-- lsp diagnostics
+lvim.keys.normal_mode["g["] = "<cmd>lua vim.diagnostic.goto_next()<cr>"
+lvim.keys.normal_mode["g]"] = "<cmd>lua vim.diagnostic.goto_prev()<cr>"
+
 -- -- next/previous tab
 lvim.builtin.which_key.mappings["m"] = { "<cmd>tabn<cr>", "Navigation" }
 lvim.builtin.which_key.mappings["n"] = { "<cmd>tabp<cr>", "Navigation" }
