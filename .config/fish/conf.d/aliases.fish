@@ -1,6 +1,9 @@
+# system
 alias xclip="xclip -selection clipboard"
 abbr xi "xclip -i"
 abbr xo "xclip -o"
+
+abbr bd "base64 --decode"
 
 if command -v exa >/dev/null
     alias ls "exa -1"
@@ -20,16 +23,16 @@ alias lf="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
 # use git bare repo to manage dotfiles
 alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 
-# programs
-abbr vi nvim
-abbr py python
+# editor
+alias nvim lvim
+abbr vi lvim
 
 # zip-like tar extraction
 abbr untar "tar -xzf"
 
 # easy configs
 abbr confish "nvim -c 'cd ~/.config/fish/' ~/.config/fish/config.fish && source ~/.config/fish/config.fish"
-abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.vim"
+abbr convim "nvim -c 'cd ~/.config/lvim/' ~/.config/lvim/config.lua"
 abbr conwm "nvim -c 'cd ~/.config/sway/' ~/.config/sway/config"
 
 # git
@@ -50,4 +53,6 @@ abbr gdsd "gitdot df"
 
 # programming
 abbr dc "docker compose"
-abbr tf terraform
+abbr t terraform
+abbr k kubectl
+abbr py python
