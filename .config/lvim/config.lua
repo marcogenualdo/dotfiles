@@ -82,7 +82,7 @@ lvim.builtin.which_key.mappings["n"] = { "<cmd>tabp<cr>", "Navigation" }
 lvim.builtin.which_key.mappings["<leader>"] = { "<C-^>", "Navigation" }
 
 -- -- unhighlight
-lvim.builtin.which_key.mappings["h"] = "<cmd>noh<cr>"
+lvim.builtin.which_key.mappings["h"] = { "<cmd>noh<cr>", "Selection" }
 
 -- -- telescope
 local actions = require("telescope.actions")
