@@ -14,6 +14,9 @@ if command -v bat >/dev/null
     alias cat bat
 end
 
+# utils
+alias ter "tee /dev/stderr"
+
 # lock screen
 alias lkk='xdg-screensaver lock'
 
@@ -44,7 +47,6 @@ abbr gck "git checkout"
 abbr gac "git add --all && git commit -m"
 abbr gsd "git df"
 alias glg "git lg"
-alias gsb "git branch -v | fzf | awk '{print $1}' | xargs -ro git checkout"
 
 abbr gd gitdot
 abbr gds "gitdot s"
@@ -53,6 +55,21 @@ abbr gdsd "gitdot df"
 
 # programming
 abbr dc "docker compose"
-abbr t terraform
+
 abbr k kubectl
+abbr kc "kubectl config use-context"
+abbr kn "kubectl config set-context --current --namespace"
+abbr kl "kubectl logs"
+abbr ke "kubectl events"
+abbr kd "kubectl delete"
+abbr kp "kubectl get pods"
+abbr kwp "kubectl get pods --watch"
+abbr ks "kubectl get services"
+abbr kws "kubectl get servicesi --watch"
+
+abbr tf terraform
+abbr tfa "terraform apply"
+abbr tg terragrunt
+abbr tga "terragrunt apply"
+
 abbr py python
