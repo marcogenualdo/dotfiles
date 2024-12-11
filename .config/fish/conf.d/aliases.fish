@@ -65,7 +65,8 @@ abbr kd "kubectl delete"
 abbr kp "kubectl get pods"
 abbr kwp "kubectl get pods --watch"
 abbr ks "kubectl get services"
-abbr kws "kubectl get servicesi --watch"
+abbr kws "kubectl get services --watch"
+abbr dekrypt "kubectl get secret -o go-template='{{range \$k,\$v := .data}}{{printf \"%s: \" \$k}}{{if not \$v}}{{\$v}}{{else}}{{\$v | base64decode}}{{end}}{{\"\n\"}}{{end}}'"
 
 abbr tf terraform
 abbr tfa "terraform apply"
