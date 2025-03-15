@@ -74,6 +74,15 @@ lvim.plugins = {
       vim.keymap.set("n", "<C-s>", function() harpoon:list():next() end)
     end,
   },
+  {
+    "junegunn/vim-easy-align",
+    config = function()
+      -- Start interactive EasyAlign in visual mode (e.g. vipga)
+      vim.keymap.set("x", "ga", "<Plug>(EasyAlign)")
+      -- Start interactive EasyAlign for a motion/text object (e.g. gaip)
+      vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")
+    end
+  },
 }
 
 -- look
@@ -97,6 +106,7 @@ lvim.keys.normal_mode["-"] = "/"
 lvim.keys.normal_mode["Y"] = "y$"
 lvim.keys.normal_mode["ZZ"] = "<cmd>qa<cr>"
 lvim.keys.normal_mode["zq"] = "<cmd>q<cr>"
+lvim.keys.normal_mode["ZQ"] = "<cmd>q!<cr>"
 
 vim.api.nvim_create_user_command("Todo", "edit ~/todo.md", {})
 
