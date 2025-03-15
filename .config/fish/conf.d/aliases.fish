@@ -44,6 +44,7 @@ abbr gs "git s"
 abbr ga "git add"
 abbr gc "git commit -m"
 abbr gck "git checkout"
+abbr gr  "git restore --staged"
 abbr gac "git add --all && git commit -m"
 abbr gsd "git df"
 alias glg "git lg"
@@ -57,7 +58,9 @@ abbr gdsd "gitdot df"
 abbr dc "docker compose"
 
 abbr k kubectl
-abbr kc "kubectl config use-context"
+abbr ka "kubectl apply -f"
+abbr kc "kubectl config"
+abbr ku "kubectl config use-context"
 abbr kn "kubectl config set-context --current --namespace"
 abbr kl "kubectl logs"
 abbr ke "kubectl events"
@@ -74,3 +77,5 @@ abbr tg terragrunt
 abbr tga "terragrunt apply"
 
 abbr py python
+
+abbr certinfo "openssl x509 -in /dev/stdin -text -noout"
