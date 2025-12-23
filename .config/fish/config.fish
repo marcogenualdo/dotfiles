@@ -4,7 +4,7 @@ set fish_greeting ""
 
 # PROMPT
 
-#starship init fish | source
+# starship init fish | source
 
 # PROGRAMS
 

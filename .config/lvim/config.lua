@@ -11,6 +11,7 @@ vim.opt.wrap = true
 
 lvim.builtin.bufferline.active = false
 lvim.builtin.alpha.active = false
+lvim.builtin.illuminate.active = false
 
 lvim.plugins = {
   {
@@ -83,6 +84,24 @@ lvim.plugins = {
       vim.keymap.set("n", "ga", "<Plug>(EasyAlign)")
     end
   },
+  {
+    "nvim-pack/nvim-spectre",
+    config = function()
+      vim.keymap.set('n', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', {
+        desc = "Toggle Spectre"
+      })
+      vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', {
+        desc = "Search current word"
+      })
+      vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', {
+        desc = "Search current word"
+      })
+      vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', {
+        desc = "Search on current file"
+      })
+    end
+  },
+  { "grafana/vim-alloy" }
 }
 
 -- look
@@ -144,6 +163,7 @@ lvim.builtin.telescope.defaults.mappings.i = {
   ["<C-j>"] = actions.move_selection_next,
   ["<C-f>"] = actions.send_selected_to_qflist,
 }
+lvim.builtin.telescope.defaults.path_display = { "absolute" }
 lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["o"] = { "<cmd>Telescope find_files<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>Telescope live_grep<cr>", "Telescope" }
