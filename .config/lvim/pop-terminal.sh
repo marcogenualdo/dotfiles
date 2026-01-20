@@ -1,19 +1,26 @@
 #!/bin/bash
 
-# references
-THIS_SESSION=$(tmux display-message -p '#S')
-THIS_WINDOW=$(tmux display-message -p '#I')
+# 1. Get current state
+curr_s=$(tmux display-message -p "#S")
+curr_w=$(tmux display-message -p "#I")
+curr_p=$(tmux display-message -p "#{pane_current_path}")
 
-# terminal session
-if [ $(echo $THIS_SESSION | grep -o '.....$') == '-term' ]; then
-    TERM_SESSION=${THIS_SESSION::-5}
+# 2. Determine target session name
+if [[ "$curr_s" == *"-term" ]]; then
+    target_s="${curr_s%-term}"
 else
-    TERM_SESSION=$THIS_SESSION-term
+    target_s="${curr_s}-term"
 fi
 
-if ! tmux has-session -t $TERM_SESSION; then
-    tmux new-session -ds $TERM_SESSION
+# 3. Create session if it doesn't exist
+if ! tmux has-session -t "$target_s" 2>/dev/null; then
+    tmux new-session -d -s "$target_s" -c "$curr_p"
 fi
-tmux new-window -t $TERM_SESSION:$THIS_WINDOW
 
-tmux switchc -t $TERM_SESSION:$THIS_WINDOW
+# 4. Create window if it doesn't exist (to match current index)
+if ! tmux select-window -t "$target_s:$curr_w" 2>/dev/null; then
+    tmux new-window -t "$target_s:$curr_w" -c "$curr_p"
+fi
+
+# 5. Switch to the session/window
+tmux switch-client -t "$target_s:$curr_w"

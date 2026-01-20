@@ -62,6 +62,7 @@ abbr dc "docker compose"
 
 abbr k kubectl
 abbr ka "kubectl apply -f"
+abbr kk "kubectl apply -k"
 abbr kc "kubectl config"
 abbr ku "kubectl config use-context"
 abbr kn "kubectl config set-context --current --namespace"

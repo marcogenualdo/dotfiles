@@ -37,6 +37,14 @@ lvim.plugins = {
     end
   },
   {
+    "nvim-telescope/telescope-frecency.nvim",
+    -- install the latest stable version
+    version = "*",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -101,7 +109,24 @@ lvim.plugins = {
       })
     end
   },
-  { "grafana/vim-alloy" }
+  { "grafana/vim-alloy" },
+  {
+    'stevearc/oil.nvim',
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {},
+    -- Optional dependencies
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+    -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+    -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+    lazy = false,
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
 }
 
 -- look
@@ -168,11 +193,14 @@ lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope current_buffer_fuzzy_fi
 lvim.builtin.which_key.mappings["o"] = { "<cmd>Telescope find_files<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["r"] = { "<cmd>Telescope live_grep<cr>", "Telescope" }
 lvim.builtin.which_key.mappings["c"] = { "<cmd>Telescope command_history<cr>", "Telescope" }
-lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Telescope" }
+lvim.builtin.which_key.mappings["b"] = {
+  "<cmd>Telescope frecency workspace=CWD path_display=smart<cr>",
+  "Telescope"
+}
 
 
 ---------------------------------
 -- CODE
 
 -- formatting
-lvim.format_on_save.enabled = true
+lvim.format_on_save.enabled = false
