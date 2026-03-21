@@ -1,0 +1,13 @@
+[Unit]
+Description=Fire break-reminder.service every 20 minutes
+
+[Timer]
+# Wait 20 minutes after boot before the first reminder
+OnActiveSec=20min
+# Then repeat every 20 minutes
+OnUnitActiveSec=20min
+# Optional: randomise up to 30 s so it doesn't feel mechanical
+RandomizedDelaySec=30
+
+[Install]
+WantedBy=timers.target

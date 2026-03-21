@@ -10,7 +10,7 @@ set fish_greeting ""
 
 set --export EDITOR lvim
 set --export VISUAL lvim
-set --export BROWSER firefox
+set --export BROWSER zen-browser
 set --export PAGER less -RF
 set --export MANPAGER "lvim +Man!"
 

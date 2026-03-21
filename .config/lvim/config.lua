@@ -127,6 +127,36 @@ lvim.plugins = {
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
   },
+  {
+    -- Make sure to set this up properly if you have lazy=true
+    'MeanderingProgrammer/render-markdown.nvim',
+    opts = {
+      file_types = { "markdown" },
+    },
+    ft = { "markdown" },
+  },
+  {
+    "tpope/vim-dadbod",
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+    config = function()
+      -- Store connections (passwords pulled from .pgpass or env)
+      vim.g.dbs = {
+        { name = "local",   url = "postgresql://postgres@localhost/postgres" },
+        { name = "prod",    url = "postgresql://admin@prod-server/mydb" },
+        { name = "read",    url = "postgresql://readonly@prod-server/mydb" },
+      }
+      vim.g.db_ui_save_location = "~/.config/nvim/db_ui"
+      vim.g.db_ui_use_nerd_fonts = 1
+
+      -- Execute query under cursor / selection
+      vim.keymap.set('n', '<leader>qr', '<Plug>(DBUI_ExecuteQuery)')
+      vim.keymap.set('v', '<leader>qr', '<Plug>(DBUI_ExecuteQuery)')
+      vim.keymap.set('n', '<leader>qq', '<cmd>DBUIToggle<cr>')
+    end,
+  }
 }
 
 -- look

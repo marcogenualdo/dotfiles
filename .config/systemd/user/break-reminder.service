@@ -1,0 +1,15 @@
+[Unit]
+Description=Break Reminder – overlay pause every 20 minutes
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=oneshot
+# Path to the script – adjust if you placed it elsewhere
+ExecStart=%h/.local/bin/break-reminder.sh
+
+# Keep environment sane for GUI apps
+Environment=DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/%U/bus
+
+[Install]
+WantedBy=graphical-session.target
