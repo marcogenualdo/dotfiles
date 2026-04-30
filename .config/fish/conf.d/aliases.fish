@@ -20,6 +20,10 @@ alias ter "tee /dev/stderr"
 # lock screen
 alias lkk='xdg-screensaver lock'
 
+# eye pause
+alias rest="systemctl --user start break-reminder.timer"
+alias norest="systemctl --user stop break-reminder.timer"
+
 # ranger leaves you in the directory you exit it from
 alias lf="ranger --choosedir=$HOME/.rangerdir; cd (cat $HOME/.rangerdir)"
 
@@ -70,6 +74,7 @@ abbr kl "kubectl logs"
 abbr ke "kubectl events"
 abbr kg "kubectl get"
 abbr kd "kubectl delete"
+abbr kD "kubectl describe"
 abbr kdp "kubectl delete pods"
 abbr kp "kubectl get pods"
 abbr kwp "kubectl get pods --watch"

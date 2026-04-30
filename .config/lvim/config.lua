@@ -5,7 +5,6 @@ vim.opt.cursorline = false
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.wrap = true
 
-
 ---------------------------------
 -- PLUGINS
 
@@ -70,7 +69,7 @@ lvim.plugins = {
         }):find()
       end
 
-      vim.keymap.set("n", "<leader>a", function() harpoon:list():append() end)
+      vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
       vim.keymap.set("n", "<leader>P", function() toggle_telescope(harpoon:list()) end)
       vim.keymap.set("n", "<leader>p", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
 

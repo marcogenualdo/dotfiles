@@ -7,3 +7,5 @@
 	lg    = log --all --graph --format=format:'%C(auto)%h%d %Cgreen%aN %Cblue%ai%n    %Creset%s'
     df    = diff --compact-summary
     s     = status --short
+[init]
+	defaultBranch = master
