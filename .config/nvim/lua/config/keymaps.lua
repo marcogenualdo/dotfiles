@@ -14,7 +14,7 @@ vim.keymap.set("n", "ZQ", "<cmd>q!<cr>")
 vim.api.nvim_create_user_command("Todo", "edit ~/todo.md", {})
 
 --  create a tmux session bound to this folder
-vim.api.nvim_create_user_command("TmuxPair", "!bash ~/.config/lvim/pop-terminal.sh > /dev/null 2>&1", {})
+vim.api.nvim_create_user_command("TmuxPair", "!bash ~/.local/bin/pop-terminal.sh > /dev/null 2>&1", {})
 vim.keymap.set("n", "<leader>t", "<cmd>TmuxPair<cr><cr>")
 
 -- delete for good, without copying to clipboard
