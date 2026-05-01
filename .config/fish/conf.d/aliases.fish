@@ -34,15 +34,14 @@ alias gitdot='/usr/bin/git --git-dir=$HOME/.dotrepo/ --work-tree=$HOME'
 abbr czf "fzf --no-sort --height 40% --border --bind 'enter:become(echo {1})'"
 
 # editor
-alias nvim lvim
-abbr vi lvim
+abbr vi nvim
 
 # zip-like tar extraction
 abbr untar "tar -xzf"
 
 # easy configs
 abbr confish "nvim -c 'cd ~/.config/fish/' ~/.config/fish/config.fish && source ~/.config/fish/config.fish && source ~/.config/fish/conf.d/*.fish"
-abbr convim "nvim -c 'cd ~/.config/lvim/' ~/.config/lvim/config.lua"
+abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.lua"
 abbr conwm "nvim -c 'cd ~/.config/sway/' ~/.config/sway/config"
 
 # git
@@ -51,7 +50,7 @@ abbr gs "git s"
 abbr ga "git add"
 abbr gc "git commit -m"
 abbr gck "git checkout"
-abbr gr  "git restore --staged"
+abbr gr "git restore --staged"
 abbr gac "git add --all && git commit -m"
 abbr gsd "git df"
 alias glg "git lg"

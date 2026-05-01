@@ -8,11 +8,11 @@ set fish_greeting ""
 
 # PROGRAMS
 
-set --export EDITOR lvim
-set --export VISUAL lvim
+set --export EDITOR nvim
+set --export VISUAL nvim
 set --export BROWSER zen-browser
 set --export PAGER less -RF
-set --export MANPAGER "lvim +Man!"
+set --export MANPAGER "nvim +Man!"
 
 # npm/yarn global packages for $USER
 set --export npm_config_prefix $HOME/.local
