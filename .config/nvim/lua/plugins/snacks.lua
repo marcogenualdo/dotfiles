@@ -22,5 +22,10 @@ return {
         dim = false,
       },
     },
+    dashboard = {
+      preset = {
+        header = "",
+      },
+    },
   },
 }
