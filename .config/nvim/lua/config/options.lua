@@ -4,3 +4,9 @@
 
 vim.opt.relativenumber = true
 vim.opt.wrap = true
+
+-- experimental native message/cmdline UI (nvim 0.12+): no "Press ENTER", highlighted cmdline
+-- conflicts with noice.nvim (both take over messages/cmdline), which is disabled in plugins/disabled.lua
+pcall(function()
+  require("vim._core.ui2").enable({})
+end)

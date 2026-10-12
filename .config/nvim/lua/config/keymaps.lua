@@ -24,7 +24,7 @@ end, { desc = "Open personal todo file" })
 
 --  create a tmux session bound to this folder
 local function spawn_term()
-  local script = vim.fn.expand("~/.local/bin/pop-terminal.sh")
+  local script = vim.fn.expand("~/.local/bin/tmux-switch.sh term")
   -- Using vim.system for a clean, async execution
   vim.system({ "bash", script }, { detach = true })
 end

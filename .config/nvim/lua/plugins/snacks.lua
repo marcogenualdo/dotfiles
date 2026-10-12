@@ -17,6 +17,8 @@ return {
     },
   },
   opts = {
+    -- show vim.notify in the native message area instead of popups
+    notifier = { enabled = false },
     zen = {
       toggles = {
         dim = false,
