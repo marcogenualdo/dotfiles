@@ -16,7 +16,7 @@ set --export MANPAGER "nvim +Man!"
 
 # npm/yarn global packages for $USER
 set --export npm_config_prefix $HOME/.local
-set --export fish_user_paths $HOME/.local/bin
+fish_add_path $HOME/.local/bin
 
 # load local system config
 set LOCAL_CONFIG_PATH $HOME/.config/fish/local.config.fish
@@ -31,8 +31,13 @@ if command -v direnv >/dev/null
     eval (direnv hook fish)
 end
 
+if status is-interactive
+    zoxide init fish --cmd z | source
+    set -gx CARAPACE_BRIDGES zsh,fish,bash
+    carapace _carapace | source
+end
+
 # version manager
-set -l vm_path "/opt/asdf-vm/asdf.fish"
-if test -e $vm_path
-    source $vm_path
+if command -v mise >/dev/null
+    mise activate fish | source
 end

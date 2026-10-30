@@ -1,14 +1,13 @@
 # system
-alias xclip="xclip -selection clipboard"
-abbr xi "xclip -i"
-abbr xo "xclip -o"
+abbr xi wl-copy
+abbr xo wl-paste
 
 abbr bd "base64 --decode"
 
-if command -v exa >/dev/null
-    alias ls "exa -1"
-    alias ll "exa -l"
-    alias la "exa -la"
+if command -v eza >/dev/null
+    alias ls "eza -1"
+    alias ll "eza -l --git"
+    alias la "eza -la --git"
 end
 if command -v bat >/dev/null
     alias cat bat
@@ -18,7 +17,7 @@ end
 alias ter "tee /dev/stderr"
 
 # lock screen
-alias lkk='xdg-screensaver lock'
+alias lkk='loginctl lock-session'
 
 # eye pause
 alias rest="systemctl --user start break-reminder.timer"
@@ -42,7 +41,6 @@ abbr untar "tar -xzf"
 # easy configs
 abbr confish "nvim -c 'cd ~/.config/fish/' ~/.config/fish/config.fish && source ~/.config/fish/config.fish && source ~/.config/fish/conf.d/*.fish"
 abbr convim "nvim -c 'cd ~/.config/nvim/' ~/.config/nvim/init.lua"
-abbr conwm "nvim -c 'cd ~/.config/sway/' ~/.config/sway/config"
 
 # git
 abbr g git
