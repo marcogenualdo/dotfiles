@@ -1,4 +1,3 @@
-chrome-gnome-shell
 dconf-editor
 evince
 gdm
@@ -29,8 +28,6 @@ gvfs
 libgnomekbd
 libnautilus-extension
 libsoup
-libsoup3
 mutter
 nautilus
-tracker3-miners
 yelp

@@ -1,0 +1,12 @@
+blueman
+brightnessctl
+cliphist
+gammastep
+grim
+network-manager-applet
+pavucontrol
+polkit-gnome
+rofi
+slurp
+xdg-desktop-portal-hyprland
+yad
